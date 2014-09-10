@@ -1,0 +1,15 @@
+Programming Conventions for Team Omega:
+
+camelCase for variable names
+ALLCAPS for constants
+
+//Comments before functions	
+void FuncName()
+{
+
+}
+
+Conditionals do egyptian style
+if (condition < 3){	
+	blah	
+}
