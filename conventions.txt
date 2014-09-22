@@ -13,3 +13,8 @@ Conditionals do egyptian style
 if (condition < 3){	
 	blah	
 }
+
+class ThisIsClass{
+	public int publicVariable;
+	private int _privateVariable;
+}
