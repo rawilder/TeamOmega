@@ -27,21 +27,22 @@ public class BallBehavior : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ball"))
                 {
                     Vector3 dir = transform.position - hit.point; 
-                    rb.AddForce(dir.x * 100.0f, 0, dir.z * 100.0f);
+                    rb.AddForce(dir.x * 1000.0f, 0, dir.z * 1000.0f);
                 }
             }
         }
-    }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("OutOfBounds"))
+        if(rb.position.y < -6)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
         }
-        else if(collision.gameObject.CompareTag("HoleBounds"))
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("HoleBounds"))
         {
             inHole = true;
         }
