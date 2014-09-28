@@ -25,7 +25,7 @@ public class TestScript : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ball"))
                 {
                     Vector3 dir = transform.position - hit.point; 
-                    rb.AddForce(dir.x * 100.0f, 0, dir.z * 100.0f);
+                    rb.AddForce(dir.x * 1000.0f, 0, dir.z * 1000.0f);
                 }
             }
         }
