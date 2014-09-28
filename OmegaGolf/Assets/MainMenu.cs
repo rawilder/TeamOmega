@@ -17,7 +17,10 @@ public class MainMenu : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-        GUI.Label(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.05f, buttonWidth, screenHeight * 0.1f), "Main Menu");
+        GUIStyle centeredText = new GUIStyle("label");
+        centeredText.alignment = TextAnchor.MiddleCenter;
+
+        GUI.Label(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.05f, buttonWidth, screenHeight * 0.1f), "Main Menu", centeredText);
 
         if (GUI.Button(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.2f, buttonWidth, buttonHeight), "Prototype Level"))
         {
