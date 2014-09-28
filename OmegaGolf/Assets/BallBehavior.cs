@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestScript : MonoBehaviour
+public class BallBehavior : MonoBehaviour
 {
 
 
@@ -28,6 +28,16 @@ public class TestScript : MonoBehaviour
                     rb.AddForce(dir.x * 100.0f, 0, dir.z * 100.0f);
                 }
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("OutOfBounds"))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
         }
     }
 }
