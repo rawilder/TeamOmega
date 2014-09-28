@@ -22,12 +22,10 @@ public class MainMenu : MonoBehaviour {
 
         GUI.Label(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.05f, buttonWidth, screenHeight * 0.1f), "Main Menu", centeredText);
 
-        if (GUI.Button(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.2f, buttonWidth, buttonHeight), "Prototype Level"))
-        {
+        if (GUI.Button(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.2f, buttonWidth, buttonHeight), "Prototype Level")) {
             Application.LoadLevel(1);
         }
-        if (GUI.Button(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.6f, buttonWidth, buttonHeight), "Quit"))
-        {
+        if (GUI.Button(new Rect((screenWidth - buttonWidth) * 0.5f, screenHeight * 0.6f, buttonWidth, buttonHeight), "Quit")){
             Application.Quit();
         }
     }
