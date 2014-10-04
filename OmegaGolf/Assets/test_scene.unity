@@ -689,9 +689,10 @@ GameObject:
   - 33: {fileID: 1319995688}
   - 23: {fileID: 1319995687}
   - 65: {fileID: 1319995685}
+  - 114: {fileID: 1319995686}
   m_Layer: 0
   m_Name: WallW
-  m_TagString: Untagged
+  m_TagString: Editable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,6 +709,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1319995686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1319995684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4983a403157755749aca780b5d806f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1319995687
 Renderer:
   m_ObjectHideFlags: 0
