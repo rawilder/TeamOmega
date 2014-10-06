@@ -133,8 +133,24 @@ public class BallMovement : MonoBehaviour
                 _lastAimPoint = _myTransform.position + maxInputRange * dir.normalized;
             }
             //rotate arrow to face ball
+
+    
+
+
             arrowSprite.transform.position = _lastAimPoint + (_lastAimPoint - _myTransform.position).normalized / 2;
-            arrowSprite.transform.rotation = Quaternion.Euler(0, 90, 0) * Quaternion.LookRotation(Vector3.up, _myTransform.position - _lastAimPoint);
+            Quaternion rotation = Quaternion.Euler(0, 90, 0) * Quaternion.LookRotation(Vector3.up, _myTransform.position - _lastAimPoint);
+         
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Vector3 rot = rotation.eulerAngles;
+                int snapValue = (int)rot.y % 15;
+                rot = new Vector3(rot.x,rot.y-snapValue,rot.z);
+                arrowSprite.transform.RotateAround(_myTransform.position, Vector3.up, rot.y);
+            }
+            else
+            {
+                arrowSprite.transform.rotation = rotation;
+            }
             //scale arrow to proper size
             float mag = (_lastAimPoint - _myTransform.position).magnitude;
             arrowSprite.transform.localScale = new Vector3(mag, mag / 2, 1);
