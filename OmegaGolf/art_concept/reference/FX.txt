@@ -1,0 +1,45 @@
+Special Effects
+
+EFFECT LIST::
+
+	Ball Trail (snow/sand trails)
+		- Using Unity Particle System
+		- Limited Time / Number of particles allowed
+		- If we decide to go with permanent trails we will have to implement decal shader where we
+			draw the trails on a 2d texture
+		
+	Object Glow
+		- Using Unity Particle System
+		- Possible to write shader for it instead, however more difficult
+		- Desires:
+			Smooth outline
+			Pulsing
+			not overwhelming
+		
+	Water Drop , Steam/Smoke, Dirt Kickup
+		- Using Unity Particle System
+		
+	Clouds
+		- 2d Texture
+		- applied as skybox
+		
+	Trees
+		- Unity tree creator doesn't do low poly trees well
+		- Suggestion : model trees in maya and make swaying in wind animation
+		
+	Grass
+		- Unity foliage can only be applied to terrain objects, we won't be using terrains
+		- Suggestion : 2D grass texture
+	
+	Water
+		- Unity (Basic) water looks bad quality
+		- Write shader for cartoon water
+			(Perlin noise + toon) shader
+			
+			
+TUTORIALS:
+
+	Unity Shader Basics : http://www.youtube.com/playlist?list=PLb8LPjN5zpx1tauZfNE1cMIIPy15UlJNZ
+	Unity Particle System (Playlist #13-#16) : http://www.youtube.com/playlist?list=PLxLNqnnCshwm9ayxqMpeWH4P1SLzrN92-
+	Unity Tree Creator : http://www.youtube.com/watch?v=neKbnIukSbk
+	
