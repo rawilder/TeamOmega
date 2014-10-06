@@ -20,7 +20,7 @@ public class BallMovement : MonoBehaviour
     public enum BallState
     {
         moving,
-        waiting,
+       // waiting,
         aiming
     };
 
@@ -49,10 +49,13 @@ public class BallMovement : MonoBehaviour
                 //wait for ball to stop moving for 30 frames (1/2 second) before allowing player to do input
                 CheckForBallStop();
                 break;
-            case BallState.waiting:
+
+           /* case BallState.waiting:
                 //wait for player to click ball before doing aiming actions
                 CheckForInput();
                 break;
+           */
+
             case BallState.aiming:
                 //draw line for force/direction on mousposition, apply force on mouseup
                 Aiming();
@@ -67,7 +70,7 @@ public class BallMovement : MonoBehaviour
             _frameCounter++;
             if (_frameCounter >= 30)
             {
-                bState = BallState.waiting;
+                bState = BallState.aiming;
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = Vector3.zero;
             }
@@ -78,7 +81,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    private void CheckForInput()
+  /*  private void CheckForInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -97,9 +100,16 @@ public class BallMovement : MonoBehaviour
             }
         }
     }
+    */
 
     private void Aiming()
     {
+
+        ballPlane.SetNormalAndPosition(Vector3.up, _myTransform.position);
+        arrowSprite.transform.position = _myTransform.position;
+        arrowSprite.transform.localScale = new Vector3(0, 0, 0);
+        arrowSprite.SetActive(true);
+
         //Draw line from ball center to current mouse position
         _r = Camera.main.ScreenPointToRay(Input.mousePosition);
         float rayDist;
