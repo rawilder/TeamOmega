@@ -68,7 +68,8 @@ public class BallMovement : MonoBehaviour
             if (_frameCounter >= 30)
             {
                 bState = BallState.waiting;
-                _rb.Sleep();
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
             }
         }
         else
@@ -134,7 +135,6 @@ public class BallMovement : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 dir = _myTransform.position - _lastAimPoint;
-            _rb.WakeUp();
             _rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
             bState = BallState.moving;
             arrowSprite.SetActive(false);
