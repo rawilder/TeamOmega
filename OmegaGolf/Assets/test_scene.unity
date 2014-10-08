@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac58073dc184b2e4ab06c81d4f8014e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorStart: {r: 1, g: 0, b: 0, a: 1}
+  colorStart: {r: 1, g: .294117659, b: .294117659, a: 1}
   colorEnd: {r: 0, g: 1, b: 0, a: 1}
   duration: 1
 --- !u!1001 &620226181
