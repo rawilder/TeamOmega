@@ -361,6 +361,7 @@ GameObject:
   - 64: {fileID: 529024183}
   - 114: {fileID: 529024184}
   - 64: {fileID: 529024185}
+  - 114: {fileID: 529024186}
   m_Layer: 0
   m_Name: polySurface1_levelone:polySurface1
   m_TagString: Editable
@@ -447,6 +448,20 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 69e6d973f9d9f374b8e131291c1d590d, type: 3}
+--- !u!114 &529024186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529024179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac58073dc184b2e4ab06c81d4f8014e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorStart: {r: 1, g: 0, b: 0, a: 1}
+  colorEnd: {r: 0, g: 1, b: 0, a: 1}
+  duration: 1
 --- !u!1001 &620226181
 Prefab:
   m_ObjectHideFlags: 0

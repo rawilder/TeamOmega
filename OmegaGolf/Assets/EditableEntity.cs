@@ -21,7 +21,9 @@ public class EditableEntity : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+       if (Input.GetMouseButtonDown(0))
+							
+
         {
             Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
