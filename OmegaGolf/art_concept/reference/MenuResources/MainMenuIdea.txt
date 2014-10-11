@@ -1,0 +1,7 @@
+Simple Art
+Background Landscape changes as you switch "worlds" (Forest -> Ice -> Mountain)
+
+Buttons:
+Left/Right button for swapping worlds
+3 buttons for levels for each world
+Options button?

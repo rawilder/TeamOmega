@@ -32,7 +32,7 @@ public class KickUp : MonoBehaviour
         _myTransform.rotation = Quaternion.Euler(-20,0,0) * Quaternion.FromToRotation(Vector3.forward, -_ballBody.velocity);
         if(_ballBody.velocity.magnitude >= speedThreshold)
         {
-            _ps.emissionRate = _rate * _ballBody.velocity.magnitude;
+            _ps.emissionRate = _rate * _ballBody.velocity.sqrMagnitude;
             _ps.startSpeed = _speed * _ballBody.velocity.magnitude;
         }
         else
