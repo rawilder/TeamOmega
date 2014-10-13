@@ -31,6 +31,13 @@ public class BallBehavior : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.MovePosition(new Vector3(-25.05f, 9f, -10.3f));
         }
+
+
+		if (Input.GetKeyDown ("e"))
+		{
+			rb.GetComponent<BallMovement>().redoShot();
+		}
+
     }
 
     void OnCollisionEnter(Collision collision)

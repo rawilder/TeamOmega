@@ -16,6 +16,8 @@ public class BallMovement : MonoBehaviour
     public float minInputRange = 0.25f;
     public float maxInputRange = 5.0f;     //variable input circle radius
     public float speedThreshold = 0.1f; //when ball speed drops below this val it is ready to be shot again
+	public Vector3 lastShotPosition; //last position from which ball was shot
+	public Vector3 lastShotForce; //last force applied to ball by player
 
     public enum BallState
     {
@@ -38,6 +40,8 @@ public class BallMovement : MonoBehaviour
         ballPlane = new Plane();
         _frameCounter = 0;
         arrowSprite.SetActive(false);
+		Vector3 lastShotPostion;
+		Vector3 lastShotForce;
     }
 
     // Update is called once per frame
@@ -49,8 +53,8 @@ public class BallMovement : MonoBehaviour
                 //wait for ball to stop moving for 30 frames (1/2 second) before allowing player to do input
                 CheckForBallStop();
                 break;
-
-           /* case BallState.waiting:
+			/*
+            case BallState.waiting:
                 //wait for player to click ball before doing aiming actions
                 CheckForInput();
                 break;
@@ -65,6 +69,8 @@ public class BallMovement : MonoBehaviour
 
     private void CheckForBallStop()
     {
+		_rb.velocity *= 0.995f;
+
         if (_rb.velocity.magnitude <= speedThreshold)
         {
             _frameCounter++;
@@ -81,7 +87,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-  /*  private void CheckForInput()
+   /* private void CheckForInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -160,10 +166,24 @@ public class BallMovement : MonoBehaviour
         //check for mouse up, if true apply force
         if (Input.GetMouseButtonUp(0))
         {
-            Vector3 dir = _myTransform.position - _lastAimPoint;
-            _rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
-            bState = BallState.moving;
-            arrowSprite.SetActive(false);
+			shootBall();
         }
+
     }
+	private void shootBall()
+	{
+		Vector3 dir = _myTransform.position - _lastAimPoint;
+		lastShotPosition = _rb.position;
+		lastShotForce = new Vector3(dir.x * speedFactor, 0, dir.z * speedFactor);
+		_rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
+		bState = BallState.moving;
+		arrowSprite.SetActive(false);
+	}
+	public void redoShot()
+	{
+		_rb.position = lastShotPosition;
+		_rb.AddForce (lastShotForce);
+		bState = BallState.moving;
+		arrowSprite.SetActive(false);
+	}
 }
