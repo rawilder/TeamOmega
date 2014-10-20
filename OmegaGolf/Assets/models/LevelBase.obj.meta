@@ -6,15 +6,20 @@ ModelImporter:
     100000: //RootNode
     100002: levelone:polySurface1_polySurface2
     100004: polySurface3_levelone:polySurface1
+    100006: default
     400000: //RootNode
     400002: levelone:polySurface1_polySurface2
     400004: polySurface3_levelone:polySurface1
+    400006: default
     2300000: levelone:polySurface1_polySurface2
     2300002: polySurface3_levelone:polySurface1
+    2300004: default
     3300000: levelone:polySurface1_polySurface2
     3300002: polySurface3_levelone:polySurface1
+    3300004: default
     4300000: levelone:polySurface1_polySurface2
     4300002: polySurface3_levelone:polySurface1
+    4300004: default
     9500000: //RootNode
   materials:
     importMaterials: 1

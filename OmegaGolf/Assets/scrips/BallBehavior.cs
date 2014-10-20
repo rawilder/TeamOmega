@@ -7,9 +7,12 @@ public class BallBehavior : MonoBehaviour
 
     Rigidbody rb;
     bool inHole;
+    private PlayerController playerController;
+
     // Use this for initialization
     void Start()
     {
+        playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         inHole = false;
     }
@@ -17,26 +20,10 @@ public class BallBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.position.y < -6 || Input.GetKeyDown("r"))
+        if (rb.position.y < -6)
         {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
-            inHole = false;
+            reset();
         }
-
-        if (Input.GetKeyDown("t"))
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.MovePosition(new Vector3(-25.05f, 9f, -10.3f));
-        }
-
-
-		if (Input.GetKeyDown ("e"))
-		{
-			rb.GetComponent<BallMovement>().redoShot();
-		}
 
     }
 
@@ -56,5 +43,22 @@ public class BallBehavior : MonoBehaviour
             GUI.Label(new Rect(Screen.width * .7f, Screen.height * .8f, 1500, 1000), "<i><size=55>You did it.</size></i>");
 
         }
+    }
+
+    public void reset()
+    {
+        playerController.strokeCount = 0;
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
+        inHole = false;
+    }
+
+    public void teleportToHole()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.MovePosition(new Vector3(-25.05f, 9f, -10.3f));
     }
 }
