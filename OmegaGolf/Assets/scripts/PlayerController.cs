@@ -90,16 +90,12 @@ public class PlayerController : MonoBehaviour
 
 	private void CheckForBallStop()
 	{
-		_rb.velocity *= 0.995f;
-
 		if (_rb.velocity.magnitude <= speedThreshold)
 		{
 			_frameCounter++;
 			if (_frameCounter >= 30)
 			{
 				gameState = GameState.aiming;
-				_rb.velocity = Vector3.zero;
-				_rb.angularVelocity = Vector3.zero;
 			}
 		}
 		else
