@@ -680,7 +680,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842998189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.0578709, y: 5.66007471, z: -10.3232222}
+  m_LocalPosition: {x: -23.3849335, y: 5.88567114, z: -10.3232222}
   m_LocalScale: {x: 3.0144155, y: 1, z: 2.64085364}
   m_Children: []
   m_Father: {fileID: 0}
@@ -764,7 +764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015053103}
   m_LocalRotation: {x: .0990457684, y: .892399132, z: -.239117622, w: .369643837}
-  m_LocalPosition: {x: -20.1930962, y: 11.4971123, z: 12.2759075}
+  m_LocalPosition: {x: -90.0686111, y: 68.5502243, z: 82.1514282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 249335386}
@@ -888,7 +888,15 @@ MonoBehaviour:
   lastShotForce: {x: 0, y: 0, z: 0}
   isInFocus: 0
   strokeCount: 0
+  modeChangeRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   gameState: 0
+  ballState: 0
+  modeChangeString: 
   arrowSprite: {fileID: 1757113790}
 --- !u!96 &1274792334
 TrailRenderer:

@@ -6,24 +6,26 @@ public class EditableEntity : MonoBehaviour
 {
     private string textFieldString;
     private bool drawEditor;
+    private PlayerController playerController;
     
     public PhysicMaterial physMaterial;
 
     // Use this for initialization
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerController>();
         physMaterial.bounciness = 0.0f;
         textFieldString = (physMaterial.bounciness*10).ToString();
         drawEditor = false;
+        physMaterial.bounciness = 0.0f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       if (Input.GetMouseButtonDown(0))
-							
-
+        if (playerController.gameState == PlayerController.GameState.editing && Input.GetMouseButtonDown(0))
         {
             Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
