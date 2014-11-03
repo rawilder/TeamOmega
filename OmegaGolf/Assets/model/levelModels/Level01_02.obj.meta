@@ -1,0 +1,557 @@
+fileFormatVersion: 2
+guid: 57b3509ede6c50e438a25b8e2c35bddb
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: level1_2_golflevel1:pCube121
+    100004: level1_2_golflevel1:pCube59
+    100006: level1_2_golflevel1:pCube60
+    100008: level1_2_golflevel1:pCube61
+    100010: level1_2_golflevel1:pCube62
+    100012: level1_2_group1 pCube125
+    100014: level1_2_group1 pCube126
+    100016: level1_2_group1 pCube127
+    100018: level1_2_group1 pCube128
+    100020: level1_2_group1 pCube134
+    100022: level1_2_group1 pCube135
+    100024: level1_2_group1 pCube136
+    100026: level1_2_group1 pCube137
+    100028: level1_2_group1 pCube179
+    100030: level1_2_group1 pCube180
+    100032: level1_2_group1 pCube181
+    100034: level1_2_group1 pCube199
+    100036: level1_2_group1 pCube200
+    100038: level1_2_pCube121
+    100040: level1_2_pCube121 group1
+    100042: level1_2_pCube122
+    100044: level1_2_pCube123
+    100046: level1_2_pCube124
+    100048: level1_2_pCube129
+    100050: level1_2_pCube130
+    100052: level1_2_pCube131
+    100054: level1_2_pCube132
+    100056: level1_2_pCube133
+    100058: level1_2_pCube138
+    100060: level1_2_pCube140
+    100062: level1_2_pCube141
+    100064: level1_2_pCube142
+    100066: level1_2_pCube143
+    100068: level1_2_pCube144
+    100070: level1_2_pCube145
+    100072: level1_2_pCube146
+    100074: level1_2_pCube147
+    100076: level1_2_pCube148
+    100078: level1_2_pCube149
+    100080: level1_2_pCube150
+    100082: level1_2_pCube151
+    100084: level1_2_pCube152
+    100086: level1_2_pCube153
+    100088: level1_2_pCube154
+    100090: level1_2_pCube156
+    100092: level1_2_pCube157
+    100094: level1_2_pCube158
+    100096: level1_2_pCube159
+    100098: level1_2_pCube160
+    100100: level1_2_pCube161
+    100102: level1_2_pCube162
+    100104: level1_2_pCube163
+    100106: level1_2_pCube164
+    100108: level1_2_pCube165
+    100110: level1_2_pCube166
+    100112: level1_2_pCube167
+    100114: level1_2_pCube170
+    100116: level1_2_pCube171
+    100118: level1_2_pCube173
+    100120: level1_2_pCube174
+    100122: level1_2_pCube175
+    100124: level1_2_pCube177
+    100126: level1_2_pCube178
+    100128: level1_2_pCube182
+    100130: level1_2_pCube183
+    100132: level1_2_pCube185
+    100134: level1_2_pCube186
+    100136: level1_2_pCube187
+    100138: level1_2_pCube188
+    100140: level1_2_pCube189
+    100142: level1_2_pCube190
+    100144: level1_2_pCube191
+    100146: level1_2_pCube192
+    100148: level1_2_pCube194
+    100150: level1_2_pCube196
+    100152: level1_2_pCube197
+    100154: level1_2_pCube198
+    100156: level1_2_pCube201
+    100158: level1_2_pCube202
+    100160: level1_2_pCube4
+    100162: level1_2_pCube59
+    100164: level1_2_pCube60
+    100166: level1_2_pCube61
+    100168: level1_2_pCube62
+    100170: level1_2_pCube63
+    100172: level1_2_pCube64
+    100174: level1_2_pCube65
+    100176: level1_2_pCube66
+    100178: level1_2_pCube67
+    100180: level1_2_pCube68
+    100182: level1_2_pCube69
+    100184: level1_2_pCube70
+    100186: level1_2_pCube71
+    100188: level1_2_pCube72
+    100190: level1_2_pCube73
+    100192: level1_2_pCube74
+    100194: level1_2_pCube75
+    100196: level1_2_pCube78
+    100198: pCube3_level1_2
+    400000: //RootNode
+    400002: level1_2_golflevel1:pCube121
+    400004: level1_2_golflevel1:pCube59
+    400006: level1_2_golflevel1:pCube60
+    400008: level1_2_golflevel1:pCube61
+    400010: level1_2_golflevel1:pCube62
+    400012: level1_2_group1 pCube125
+    400014: level1_2_group1 pCube126
+    400016: level1_2_group1 pCube127
+    400018: level1_2_group1 pCube128
+    400020: level1_2_group1 pCube134
+    400022: level1_2_group1 pCube135
+    400024: level1_2_group1 pCube136
+    400026: level1_2_group1 pCube137
+    400028: level1_2_group1 pCube179
+    400030: level1_2_group1 pCube180
+    400032: level1_2_group1 pCube181
+    400034: level1_2_group1 pCube199
+    400036: level1_2_group1 pCube200
+    400038: level1_2_pCube121
+    400040: level1_2_pCube121 group1
+    400042: level1_2_pCube122
+    400044: level1_2_pCube123
+    400046: level1_2_pCube124
+    400048: level1_2_pCube129
+    400050: level1_2_pCube130
+    400052: level1_2_pCube131
+    400054: level1_2_pCube132
+    400056: level1_2_pCube133
+    400058: level1_2_pCube138
+    400060: level1_2_pCube140
+    400062: level1_2_pCube141
+    400064: level1_2_pCube142
+    400066: level1_2_pCube143
+    400068: level1_2_pCube144
+    400070: level1_2_pCube145
+    400072: level1_2_pCube146
+    400074: level1_2_pCube147
+    400076: level1_2_pCube148
+    400078: level1_2_pCube149
+    400080: level1_2_pCube150
+    400082: level1_2_pCube151
+    400084: level1_2_pCube152
+    400086: level1_2_pCube153
+    400088: level1_2_pCube154
+    400090: level1_2_pCube156
+    400092: level1_2_pCube157
+    400094: level1_2_pCube158
+    400096: level1_2_pCube159
+    400098: level1_2_pCube160
+    400100: level1_2_pCube161
+    400102: level1_2_pCube162
+    400104: level1_2_pCube163
+    400106: level1_2_pCube164
+    400108: level1_2_pCube165
+    400110: level1_2_pCube166
+    400112: level1_2_pCube167
+    400114: level1_2_pCube170
+    400116: level1_2_pCube171
+    400118: level1_2_pCube173
+    400120: level1_2_pCube174
+    400122: level1_2_pCube175
+    400124: level1_2_pCube177
+    400126: level1_2_pCube178
+    400128: level1_2_pCube182
+    400130: level1_2_pCube183
+    400132: level1_2_pCube185
+    400134: level1_2_pCube186
+    400136: level1_2_pCube187
+    400138: level1_2_pCube188
+    400140: level1_2_pCube189
+    400142: level1_2_pCube190
+    400144: level1_2_pCube191
+    400146: level1_2_pCube192
+    400148: level1_2_pCube194
+    400150: level1_2_pCube196
+    400152: level1_2_pCube197
+    400154: level1_2_pCube198
+    400156: level1_2_pCube201
+    400158: level1_2_pCube202
+    400160: level1_2_pCube4
+    400162: level1_2_pCube59
+    400164: level1_2_pCube60
+    400166: level1_2_pCube61
+    400168: level1_2_pCube62
+    400170: level1_2_pCube63
+    400172: level1_2_pCube64
+    400174: level1_2_pCube65
+    400176: level1_2_pCube66
+    400178: level1_2_pCube67
+    400180: level1_2_pCube68
+    400182: level1_2_pCube69
+    400184: level1_2_pCube70
+    400186: level1_2_pCube71
+    400188: level1_2_pCube72
+    400190: level1_2_pCube73
+    400192: level1_2_pCube74
+    400194: level1_2_pCube75
+    400196: level1_2_pCube78
+    400198: pCube3_level1_2
+    2300000: level1_2_golflevel1:pCube121
+    2300002: level1_2_golflevel1:pCube59
+    2300004: level1_2_golflevel1:pCube60
+    2300006: level1_2_golflevel1:pCube61
+    2300008: level1_2_golflevel1:pCube62
+    2300010: level1_2_group1 pCube125
+    2300012: level1_2_group1 pCube126
+    2300014: level1_2_group1 pCube127
+    2300016: level1_2_group1 pCube128
+    2300018: level1_2_group1 pCube134
+    2300020: level1_2_group1 pCube135
+    2300022: level1_2_group1 pCube136
+    2300024: level1_2_group1 pCube137
+    2300026: level1_2_group1 pCube179
+    2300028: level1_2_group1 pCube180
+    2300030: level1_2_group1 pCube181
+    2300032: level1_2_group1 pCube199
+    2300034: level1_2_group1 pCube200
+    2300036: level1_2_pCube121
+    2300038: level1_2_pCube121 group1
+    2300040: level1_2_pCube122
+    2300042: level1_2_pCube123
+    2300044: level1_2_pCube124
+    2300046: level1_2_pCube129
+    2300048: level1_2_pCube130
+    2300050: level1_2_pCube131
+    2300052: level1_2_pCube132
+    2300054: level1_2_pCube133
+    2300056: level1_2_pCube138
+    2300058: level1_2_pCube140
+    2300060: level1_2_pCube141
+    2300062: level1_2_pCube142
+    2300064: level1_2_pCube143
+    2300066: level1_2_pCube144
+    2300068: level1_2_pCube145
+    2300070: level1_2_pCube146
+    2300072: level1_2_pCube147
+    2300074: level1_2_pCube148
+    2300076: level1_2_pCube149
+    2300078: level1_2_pCube150
+    2300080: level1_2_pCube151
+    2300082: level1_2_pCube152
+    2300084: level1_2_pCube153
+    2300086: level1_2_pCube154
+    2300088: level1_2_pCube156
+    2300090: level1_2_pCube157
+    2300092: level1_2_pCube158
+    2300094: level1_2_pCube159
+    2300096: level1_2_pCube160
+    2300098: level1_2_pCube161
+    2300100: level1_2_pCube162
+    2300102: level1_2_pCube163
+    2300104: level1_2_pCube164
+    2300106: level1_2_pCube165
+    2300108: level1_2_pCube166
+    2300110: level1_2_pCube167
+    2300112: level1_2_pCube170
+    2300114: level1_2_pCube171
+    2300116: level1_2_pCube173
+    2300118: level1_2_pCube174
+    2300120: level1_2_pCube175
+    2300122: level1_2_pCube177
+    2300124: level1_2_pCube178
+    2300126: level1_2_pCube182
+    2300128: level1_2_pCube183
+    2300130: level1_2_pCube185
+    2300132: level1_2_pCube186
+    2300134: level1_2_pCube187
+    2300136: level1_2_pCube188
+    2300138: level1_2_pCube189
+    2300140: level1_2_pCube190
+    2300142: level1_2_pCube191
+    2300144: level1_2_pCube192
+    2300146: level1_2_pCube194
+    2300148: level1_2_pCube196
+    2300150: level1_2_pCube197
+    2300152: level1_2_pCube198
+    2300154: level1_2_pCube201
+    2300156: level1_2_pCube202
+    2300158: level1_2_pCube4
+    2300160: level1_2_pCube59
+    2300162: level1_2_pCube60
+    2300164: level1_2_pCube61
+    2300166: level1_2_pCube62
+    2300168: level1_2_pCube63
+    2300170: level1_2_pCube64
+    2300172: level1_2_pCube65
+    2300174: level1_2_pCube66
+    2300176: level1_2_pCube67
+    2300178: level1_2_pCube68
+    2300180: level1_2_pCube69
+    2300182: level1_2_pCube70
+    2300184: level1_2_pCube71
+    2300186: level1_2_pCube72
+    2300188: level1_2_pCube73
+    2300190: level1_2_pCube74
+    2300192: level1_2_pCube75
+    2300194: level1_2_pCube78
+    2300196: pCube3_level1_2
+    3300000: level1_2_golflevel1:pCube121
+    3300002: level1_2_golflevel1:pCube59
+    3300004: level1_2_golflevel1:pCube60
+    3300006: level1_2_golflevel1:pCube61
+    3300008: level1_2_golflevel1:pCube62
+    3300010: level1_2_group1 pCube125
+    3300012: level1_2_group1 pCube126
+    3300014: level1_2_group1 pCube127
+    3300016: level1_2_group1 pCube128
+    3300018: level1_2_group1 pCube134
+    3300020: level1_2_group1 pCube135
+    3300022: level1_2_group1 pCube136
+    3300024: level1_2_group1 pCube137
+    3300026: level1_2_group1 pCube179
+    3300028: level1_2_group1 pCube180
+    3300030: level1_2_group1 pCube181
+    3300032: level1_2_group1 pCube199
+    3300034: level1_2_group1 pCube200
+    3300036: level1_2_pCube121
+    3300038: level1_2_pCube121 group1
+    3300040: level1_2_pCube122
+    3300042: level1_2_pCube123
+    3300044: level1_2_pCube124
+    3300046: level1_2_pCube129
+    3300048: level1_2_pCube130
+    3300050: level1_2_pCube131
+    3300052: level1_2_pCube132
+    3300054: level1_2_pCube133
+    3300056: level1_2_pCube138
+    3300058: level1_2_pCube140
+    3300060: level1_2_pCube141
+    3300062: level1_2_pCube142
+    3300064: level1_2_pCube143
+    3300066: level1_2_pCube144
+    3300068: level1_2_pCube145
+    3300070: level1_2_pCube146
+    3300072: level1_2_pCube147
+    3300074: level1_2_pCube148
+    3300076: level1_2_pCube149
+    3300078: level1_2_pCube150
+    3300080: level1_2_pCube151
+    3300082: level1_2_pCube152
+    3300084: level1_2_pCube153
+    3300086: level1_2_pCube154
+    3300088: level1_2_pCube156
+    3300090: level1_2_pCube157
+    3300092: level1_2_pCube158
+    3300094: level1_2_pCube159
+    3300096: level1_2_pCube160
+    3300098: level1_2_pCube161
+    3300100: level1_2_pCube162
+    3300102: level1_2_pCube163
+    3300104: level1_2_pCube164
+    3300106: level1_2_pCube165
+    3300108: level1_2_pCube166
+    3300110: level1_2_pCube167
+    3300112: level1_2_pCube170
+    3300114: level1_2_pCube171
+    3300116: level1_2_pCube173
+    3300118: level1_2_pCube174
+    3300120: level1_2_pCube175
+    3300122: level1_2_pCube177
+    3300124: level1_2_pCube178
+    3300126: level1_2_pCube182
+    3300128: level1_2_pCube183
+    3300130: level1_2_pCube185
+    3300132: level1_2_pCube186
+    3300134: level1_2_pCube187
+    3300136: level1_2_pCube188
+    3300138: level1_2_pCube189
+    3300140: level1_2_pCube190
+    3300142: level1_2_pCube191
+    3300144: level1_2_pCube192
+    3300146: level1_2_pCube194
+    3300148: level1_2_pCube196
+    3300150: level1_2_pCube197
+    3300152: level1_2_pCube198
+    3300154: level1_2_pCube201
+    3300156: level1_2_pCube202
+    3300158: level1_2_pCube4
+    3300160: level1_2_pCube59
+    3300162: level1_2_pCube60
+    3300164: level1_2_pCube61
+    3300166: level1_2_pCube62
+    3300168: level1_2_pCube63
+    3300170: level1_2_pCube64
+    3300172: level1_2_pCube65
+    3300174: level1_2_pCube66
+    3300176: level1_2_pCube67
+    3300178: level1_2_pCube68
+    3300180: level1_2_pCube69
+    3300182: level1_2_pCube70
+    3300184: level1_2_pCube71
+    3300186: level1_2_pCube72
+    3300188: level1_2_pCube73
+    3300190: level1_2_pCube74
+    3300192: level1_2_pCube75
+    3300194: level1_2_pCube78
+    3300196: pCube3_level1_2
+    4300000: level1_2_golflevel1:pCube121
+    4300002: level1_2_golflevel1:pCube59
+    4300004: level1_2_golflevel1:pCube60
+    4300006: level1_2_golflevel1:pCube61
+    4300008: level1_2_golflevel1:pCube62
+    4300010: level1_2_group1 pCube125
+    4300012: level1_2_group1 pCube126
+    4300014: level1_2_group1 pCube127
+    4300016: level1_2_group1 pCube128
+    4300018: level1_2_group1 pCube134
+    4300020: level1_2_group1 pCube135
+    4300022: level1_2_group1 pCube136
+    4300024: level1_2_group1 pCube137
+    4300026: level1_2_group1 pCube179
+    4300028: level1_2_group1 pCube180
+    4300030: level1_2_group1 pCube181
+    4300032: level1_2_group1 pCube199
+    4300034: level1_2_group1 pCube200
+    4300036: level1_2_pCube121
+    4300038: level1_2_pCube121 group1
+    4300040: level1_2_pCube122
+    4300042: level1_2_pCube123
+    4300044: level1_2_pCube124
+    4300046: level1_2_pCube129
+    4300048: level1_2_pCube130
+    4300050: level1_2_pCube131
+    4300052: level1_2_pCube132
+    4300054: level1_2_pCube133
+    4300056: level1_2_pCube138
+    4300058: level1_2_pCube140
+    4300060: level1_2_pCube141
+    4300062: level1_2_pCube142
+    4300064: level1_2_pCube143
+    4300066: level1_2_pCube144
+    4300068: level1_2_pCube145
+    4300070: level1_2_pCube146
+    4300072: level1_2_pCube147
+    4300074: level1_2_pCube148
+    4300076: level1_2_pCube149
+    4300078: level1_2_pCube150
+    4300080: level1_2_pCube151
+    4300082: level1_2_pCube152
+    4300084: level1_2_pCube153
+    4300086: level1_2_pCube154
+    4300088: level1_2_pCube156
+    4300090: level1_2_pCube157
+    4300092: level1_2_pCube158
+    4300094: level1_2_pCube159
+    4300096: level1_2_pCube160
+    4300098: level1_2_pCube161
+    4300100: level1_2_pCube162
+    4300102: level1_2_pCube163
+    4300104: level1_2_pCube164
+    4300106: level1_2_pCube165
+    4300108: level1_2_pCube166
+    4300110: level1_2_pCube167
+    4300112: level1_2_pCube170
+    4300114: level1_2_pCube171
+    4300116: level1_2_pCube173
+    4300118: level1_2_pCube174
+    4300120: level1_2_pCube175
+    4300122: level1_2_pCube177
+    4300124: level1_2_pCube178
+    4300126: level1_2_pCube182
+    4300128: level1_2_pCube183
+    4300130: level1_2_pCube185
+    4300132: level1_2_pCube186
+    4300134: level1_2_pCube187
+    4300136: level1_2_pCube188
+    4300138: level1_2_pCube189
+    4300140: level1_2_pCube190
+    4300142: level1_2_pCube191
+    4300144: level1_2_pCube192
+    4300146: level1_2_pCube194
+    4300148: level1_2_pCube196
+    4300150: level1_2_pCube197
+    4300152: level1_2_pCube198
+    4300154: level1_2_pCube201
+    4300156: level1_2_pCube202
+    4300158: level1_2_pCube4
+    4300160: level1_2_pCube59
+    4300162: level1_2_pCube60
+    4300164: level1_2_pCube61
+    4300166: level1_2_pCube62
+    4300168: level1_2_pCube63
+    4300170: level1_2_pCube64
+    4300172: level1_2_pCube65
+    4300174: level1_2_pCube66
+    4300176: level1_2_pCube67
+    4300178: level1_2_pCube68
+    4300180: level1_2_pCube69
+    4300182: level1_2_pCube70
+    4300184: level1_2_pCube71
+    4300186: level1_2_pCube72
+    4300188: level1_2_pCube73
+    4300190: level1_2_pCube74
+    4300192: level1_2_pCube75
+    4300194: level1_2_pCube78
+    4300196: pCube3_level1_2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
