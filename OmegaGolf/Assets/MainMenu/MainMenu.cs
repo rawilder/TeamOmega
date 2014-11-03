@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
 #endregion
 
 #region Public Variables
+    public Camera trailCam;
     public GUISkin defaultSkin;
     public Texture2D NoStars;
     public Texture2D OneStar;
@@ -54,7 +55,7 @@ public class MainMenu : MonoBehaviour
 
 #endregion
 
-
+    
     void Start () {
         _state = MenuState.Main;
         screenHeight = Screen.height;
@@ -89,6 +90,7 @@ public class MainMenu : MonoBehaviour
                 LevelGUI();
                 break;
         }
+        trailCam.Render();
        
     }
 
