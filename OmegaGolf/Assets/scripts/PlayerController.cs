@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool isInFocus; //Prevents submit button on "code editor" from shooting ball on submission
     public int strokeCount;
     public Rect modeChangeRect;
+    public bool victoryCondition;
 
     public enum GameState
     {
@@ -82,6 +83,11 @@ public class PlayerController : MonoBehaviour
 		{
 			redoShot();
 		}
+
+        if (victoryCondition && Input.GetMouseButtonDown(0))
+        {
+            Application.LoadLevel(0);
+        }
 
         switch (ballState)
 		{

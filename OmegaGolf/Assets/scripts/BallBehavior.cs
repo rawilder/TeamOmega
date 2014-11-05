@@ -6,7 +6,6 @@ public class BallBehavior : MonoBehaviour
 
 
     Rigidbody rb;
-    bool inHole;
     private PlayerController playerController;
 
     // Use this for initialization
@@ -14,7 +13,6 @@ public class BallBehavior : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
-        inHole = false;
     }
 
     // Update is called once per frame
@@ -31,13 +29,13 @@ public class BallBehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("HoleBounds"))
         {
-            inHole = true;
+            playerController.victoryCondition = true;
         }
     }
 
     void OnGUI()
     {
-        if(inHole)
+        if (playerController.victoryCondition)
         {
             GUI.Label(new Rect(Screen.width * .03f, Screen.height * .03f, 1500, 1000), "<i><size=55>Wow great job.</size></i>");
             GUI.Label(new Rect(Screen.width * .7f, Screen.height * .8f, 1500, 1000), "<i><size=55>You did it.</size></i>");
@@ -52,7 +50,6 @@ public class BallBehavior : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
-        inHole = false;
     }
 
     public void teleportToHole()
