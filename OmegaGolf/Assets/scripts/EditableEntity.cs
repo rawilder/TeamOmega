@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 public class EditableEntity : MonoBehaviour
 {
     private string textFieldString;
-    private bool drawEditor;
+    public bool drawEditor;
     private PlayerController playerController;
     
     public PhysicMaterial physMaterial;
@@ -14,10 +14,8 @@ public class EditableEntity : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerController>();
-        physMaterial.bounciness = 0.0f;
         textFieldString = (physMaterial.bounciness*10).ToString();
         drawEditor = false;
-        physMaterial.bounciness = 0.0f;
 
     }
 

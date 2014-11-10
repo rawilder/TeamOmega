@@ -14,4 +14,10 @@ public class gravityInHole : MonoBehaviour {
 		Physics.gravity = new Vector3(0, -10, 0);
 
 	}
+
+
+    void OnCollisionEnter()
+    {
+
+    }
 }

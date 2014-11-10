@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	private int _frameCounter;
     private BallBehavior ballController;
 
-	public float speedFactor = 100.0f;  //variable ball speed  
+	public float speedFactor = 400.0f;  //variable ball speed  
 	public float minInputRange = 0.25f;
 	public float maxInputRange = 5.0f;     //variable input circle radius
 	public float speedThreshold = 0.1f; //when ball speed drops below this val it is ready to be shot again
@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+	    _rb.angularVelocity = Vector3.zero;
         if (Input.GetKeyDown("r"))
         {
            ballController.reset();
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 		{
             case BallState.moving:
 				//wait for ball to stop moving for 30 frames (1/2 second) before allowing player to do input
+                arrowSprite.SetActive(false);
 				CheckForBallStop();
 				break;
 
@@ -186,7 +188,7 @@ public class PlayerController : MonoBehaviour
 			float mag = (_lastAimPoint - _myTransform.position).magnitude;
 			arrowSprite.transform.localScale = new Vector3(mag, mag / 2, 1);
 		}
-        Debug.Log(arrowSprite.transform.position);
+
 		//check for mouse up, if true apply force
         Vector2 mouse = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
 
@@ -205,12 +207,20 @@ public class PlayerController : MonoBehaviour
 
 		if (GUI.Button(modeChangeRect, modeChangeString)) 
 		{
-            if (gameState == GameState.playing)
-                gameState = GameState.editing;
+		    if (gameState == GameState.playing)
+		    {
+                arrowSprite.SetActive(false);
+		        gameState = GameState.editing;
+		    }
             else
+		    {
+		        foreach (var e in FindObjectsOfType<EditableEntity>())
+                {
+                    e.drawEditor = false;
+                }
                 gameState = GameState.playing;
+		    }
 
-			Debug.Log("Switched mode to " + modeChangeString);
 		}
     }
 
@@ -221,7 +231,6 @@ public class PlayerController : MonoBehaviour
 		lastShotForce = new Vector3(dir.x * speedFactor, 0, dir.z * speedFactor);
 		_rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
         ballState = BallState.moving;
-		arrowSprite.SetActive(false);
         strokeCount++;
 	}
 
