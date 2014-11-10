@@ -22,7 +22,7 @@ public class blinking : MonoBehaviour {
 		EditableEntity wallEntity = (EditableEntity)wall.GetComponent (typeof(EditableEntity));
 		float wallBounciness = wallEntity.physMaterial.bounciness;
 
-		//float lerp = Mathf.PingPong(Time.time, duration) / duration;
+		float lerp = Mathf.PingPong(Time.time, duration) / duration;
 		renderer.material.color = Color.Lerp(colorStart, colorEnd, wallBounciness);
 	
 
