@@ -14,10 +14,8 @@ public class EditableEntity : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerController>();
-        physMaterial.bounciness = 0.0f;
         textFieldString = (physMaterial.bounciness*10).ToString();
         drawEditor = false;
-        physMaterial.bounciness = 0.0f;
 
     }
 

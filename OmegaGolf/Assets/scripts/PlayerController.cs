@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	private int _frameCounter;
     private BallBehavior ballController;
 
-	public float speedFactor = 100.0f;  //variable ball speed  
+	public float speedFactor = 400.0f;  //variable ball speed  
 	public float minInputRange = 0.25f;
 	public float maxInputRange = 5.0f;     //variable input circle radius
 	public float speedThreshold = 0.1f; //when ball speed drops below this val it is ready to be shot again
@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
 			float mag = (_lastAimPoint - _myTransform.position).magnitude;
 			arrowSprite.transform.localScale = new Vector3(mag, mag / 2, 1);
 		}
-        Debug.Log(arrowSprite.transform.position);
+
 		//check for mouse up, if true apply force
         Vector2 mouse = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
 
@@ -221,7 +221,6 @@ public class PlayerController : MonoBehaviour
                 gameState = GameState.playing;
 		    }
 
-			Debug.Log("Switched mode to " + modeChangeString);
 		}
     }
 

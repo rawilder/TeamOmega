@@ -7,7 +7,7 @@ PhysicMaterial:
   m_PrefabInternal: {fileID: 0}
   m_Name: BouncyBall
   dynamicFriction: 0
-  staticFriction: .400000006
+  staticFriction: 0
   bounciness: .300000012
   frictionCombine: 0
   bounceCombine: 3

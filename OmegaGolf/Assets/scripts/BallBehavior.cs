@@ -31,6 +31,26 @@ public class BallBehavior : MonoBehaviour
         {
             playerController.victoryCondition = true;
         }
+
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Editable"))
+        {
+            Debug.Log("hey hacky shit here");
+            rb.AddForce(rb.velocity * 100f);
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("BlackHole"))
+        {
+
+            rb.AddForce((collider.transform.position-rb.position)*150f);
+        }
     }
 
     void OnGUI()

@@ -546,7 +546,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
-  m_Convex: 1
+  m_Convex: 0
   m_Mesh: {fileID: 4300004, guid: 9e069b5d6dcf24541b3f05138e17d240, type: 3}
 --- !u!1 &737210198
 GameObject:
@@ -612,7 +612,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737210198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2411623, y: 9.56765747, z: 19.28582}
+  m_LocalPosition: {x: 2.4793663, y: 9.56765747, z: 19.28582}
   m_LocalScale: {x: 1, y: 1, z: 11}
   m_Children: []
   m_Father: {fileID: 0}
@@ -825,7 +825,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274792326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.22703218, y: 9.55682659, z: 19.2954693}
+  m_LocalPosition: {x: 2.46523619, y: 9.55682659, z: 19.2954693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9f0468cf1079449a2d49e5efd5615e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedFactor: 200
+  speedFactor: 400
   minInputRange: .25
   maxInputRange: 12
   speedThreshold: 1
