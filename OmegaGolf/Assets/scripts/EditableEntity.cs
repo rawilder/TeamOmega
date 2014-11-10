@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 public class EditableEntity : MonoBehaviour
 {
     private string textFieldString;
-    private bool drawEditor;
+    public bool drawEditor;
     private PlayerController playerController;
     
     public PhysicMaterial physMaterial;
