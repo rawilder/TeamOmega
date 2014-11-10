@@ -404,8 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac58073dc184b2e4ab06c81d4f8014e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorStart: {r: 1, g: .294117659, b: .294117659, a: 1}
-  colorEnd: {r: 0, g: 1, b: 0, a: 1}
+  colorStart: {r: .423529416, g: .13333334, b: .13333334, a: 1}
+  colorEnd: {r: 0, g: .389705896, b: 0, a: 1}
   duration: 1
 --- !u!1001 &620226181
 Prefab:
@@ -865,6 +865,7 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+  victoryCondition: 0
   gameState: 0
   ballState: 0
   modeChangeString: 
