@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+	    _rb.angularVelocity = Vector3.zero;
         if (Input.GetKeyDown("r"))
         {
            ballController.reset();
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 		{
             case BallState.moving:
 				//wait for ball to stop moving for 30 frames (1/2 second) before allowing player to do input
+                arrowSprite.SetActive(false);
 				CheckForBallStop();
 				break;
 
@@ -205,10 +207,19 @@ public class PlayerController : MonoBehaviour
 
 		if (GUI.Button(modeChangeRect, modeChangeString)) 
 		{
-            if (gameState == GameState.playing)
-                gameState = GameState.editing;
+		    if (gameState == GameState.playing)
+		    {
+                arrowSprite.SetActive(false);
+		        gameState = GameState.editing;
+		    }
             else
+		    {
+		        foreach (var e in FindObjectsOfType<EditableEntity>())
+                {
+                    e.drawEditor = false;
+                }
                 gameState = GameState.playing;
+		    }
 
 			Debug.Log("Switched mode to " + modeChangeString);
 		}
@@ -221,7 +232,6 @@ public class PlayerController : MonoBehaviour
 		lastShotForce = new Vector3(dir.x * speedFactor, 0, dir.z * speedFactor);
 		_rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
         ballState = BallState.moving;
-		arrowSprite.SetActive(false);
         strokeCount++;
 	}
 

@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4983a403157755749aca780b5d806f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drawEditor: 0
   physMaterial: {fileID: 13400000, guid: 3d3e579dd4e7ad84882e34c56d682012, type: 2}
 --- !u!64 &529024185
 MeshCollider:
@@ -545,7 +546,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 4300004, guid: 9e069b5d6dcf24541b3f05138e17d240, type: 3}
 --- !u!1 &737210198
 GameObject:
@@ -865,6 +866,7 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+  victoryCondition: 0
   gameState: 0
   ballState: 0
   modeChangeString: 
