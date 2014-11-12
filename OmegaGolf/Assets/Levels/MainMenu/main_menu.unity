@@ -892,13 +892,13 @@ MonoBehaviour:
     buttonStyle:
       m_Name: 
       m_Normal:
-        m_Background: {fileID: 2800000, guid: e80f7440b7cf5c24eb98d4ddb88e453e, type: 3}
+        m_Background: {fileID: 2800000, guid: 3b6cfd0c0b14a064280ffee3a131a7a5, type: 3}
         m_TextColor: {r: .20588237, g: .20588237, b: .20588237, a: 1}
       m_Hover:
-        m_Background: {fileID: 2800000, guid: e80f7440b7cf5c24eb98d4ddb88e453e, type: 3}
+        m_Background: {fileID: 2800000, guid: 3b6cfd0c0b14a064280ffee3a131a7a5, type: 3}
         m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
       m_Active:
-        m_Background: {fileID: 2800000, guid: e80f7440b7cf5c24eb98d4ddb88e453e, type: 3}
+        m_Background: {fileID: 2800000, guid: 3b6cfd0c0b14a064280ffee3a131a7a5, type: 3}
         m_TextColor: {r: .20784314, g: .20784314, b: .20784314, a: 1}
       m_Focused:
         m_Background: {fileID: 0}
@@ -935,8 +935,8 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 2d488752b38fb264889ff320b096ef3d, type: 3}
-      m_FontSize: 45
+      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4
       m_WordWrap: 0
@@ -957,13 +957,13 @@ MonoBehaviour:
     buttonStyle:
       m_Name: 
       m_Normal:
-        m_Background: {fileID: 2800000, guid: c96574e7575a734418b8f3a8cb4de295, type: 3}
+        m_Background: {fileID: 2800000, guid: d286aacd552ae56499f241a592db1bc0, type: 3}
         m_TextColor: {r: .20588237, g: .20588237, b: .20588237, a: 1}
       m_Hover:
-        m_Background: {fileID: 2800000, guid: c96574e7575a734418b8f3a8cb4de295, type: 3}
+        m_Background: {fileID: 2800000, guid: d286aacd552ae56499f241a592db1bc0, type: 3}
         m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
       m_Active:
-        m_Background: {fileID: 2800000, guid: c96574e7575a734418b8f3a8cb4de295, type: 3}
+        m_Background: {fileID: 2800000, guid: d286aacd552ae56499f241a592db1bc0, type: 3}
         m_TextColor: {r: .20784314, g: .20784314, b: .20784314, a: 1}
       m_Focused:
         m_Background: {fileID: 0}
@@ -1000,8 +1000,8 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 2d488752b38fb264889ff320b096ef3d, type: 3}
-      m_FontSize: 45
+      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4
       m_WordWrap: 0
@@ -1022,13 +1022,13 @@ MonoBehaviour:
     buttonStyle:
       m_Name: 
       m_Normal:
-        m_Background: {fileID: 2800000, guid: a739896cfde86974283a5c6669b14225, type: 3}
+        m_Background: {fileID: 2800000, guid: 04cd9bfe1f3f41d4eb4c45dd759ba953, type: 3}
         m_TextColor: {r: .235294104, g: .235294104, b: .235294104, a: 1}
       m_Hover:
-        m_Background: {fileID: 2800000, guid: a739896cfde86974283a5c6669b14225, type: 3}
+        m_Background: {fileID: 2800000, guid: 04cd9bfe1f3f41d4eb4c45dd759ba953, type: 3}
         m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
       m_Active:
-        m_Background: {fileID: 2800000, guid: a739896cfde86974283a5c6669b14225, type: 3}
+        m_Background: {fileID: 2800000, guid: 04cd9bfe1f3f41d4eb4c45dd759ba953, type: 3}
         m_TextColor: {r: .235294119, g: .235294119, b: .235294119, a: 1}
       m_Focused:
         m_Background: {fileID: 0}
@@ -1065,8 +1065,8 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 2d488752b38fb264889ff320b096ef3d, type: 3}
-      m_FontSize: 45
+      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4
       m_WordWrap: 0
