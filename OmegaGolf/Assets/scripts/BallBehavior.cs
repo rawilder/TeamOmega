@@ -40,7 +40,7 @@ public class BallBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Editable"))
         {
             Debug.Log("hey hacky shit here");
-            rb.AddForce(rb.velocity * 100f);
+            rb.AddForce(rb.velocity * (100f * collision.gameObject.GetComponent<EditableEntity>().bounceValue));
         }
     }
 

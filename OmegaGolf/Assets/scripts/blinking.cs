@@ -20,7 +20,7 @@ public class blinking : MonoBehaviour {
 		GameObject wall = GameObject.Find("polySurface1_levelone:polySurface1");
 
 		EditableEntity wallEntity = (EditableEntity)wall.GetComponent (typeof(EditableEntity));
-		float wallBounciness = wallEntity.physMaterial.bounciness;
+		float wallBounciness = wallEntity.bounceValue;
 
 		float lerp = Mathf.PingPong(Time.time, duration) / duration;
 		renderer.material.color = Color.Lerp(colorStart, colorEnd, wallBounciness);

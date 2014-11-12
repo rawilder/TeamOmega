@@ -9,13 +9,16 @@ public class EditableEntity : MonoBehaviour
     private PlayerController playerController;
     
     public PhysicMaterial physMaterial;
+    public float bounceValue;
 
     // Use this for initialization
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerController>();
-        textFieldString = (physMaterial.bounciness*10).ToString();
+        textFieldString = (bounceValue*10).ToString();
         drawEditor = false;
+        bounceValue = 0.0f;
+        physMaterial.bounciness = 1.0f;
 
     }
 
@@ -70,7 +73,7 @@ public class EditableEntity : MonoBehaviour
                     textFieldString = newBounceValue.ToString();                   
                 }
 
-                physMaterial.bounciness = newBounceValue / 10.0f;
+                bounceValue = newBounceValue / 10.0f;
             }
         }
     }
