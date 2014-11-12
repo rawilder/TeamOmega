@@ -307,6 +307,7 @@ GameObject:
   - 114: {fileID: 529024184}
   - 64: {fileID: 529024185}
   - 114: {fileID: 529024186}
+  - 114: {fileID: 529024187}
   m_Layer: 0
   m_Name: polySurface1_levelone:polySurface1
   m_TagString: Editable
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawEditor: 0
   physMaterial: {fileID: 13400000, guid: 3d3e579dd4e7ad84882e34c56d682012, type: 2}
+  bounceValue: 0
 --- !u!64 &529024185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -400,7 +402,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529024179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac58073dc184b2e4ab06c81d4f8014e7, type: 3}
   m_Name: 
@@ -408,6 +410,20 @@ MonoBehaviour:
   colorStart: {r: 1, g: .294117659, b: .294117659, a: 1}
   colorEnd: {r: 0, g: 1, b: 0, a: 1}
   duration: 1
+--- !u!114 &529024187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529024179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ec060fd25331249a5ad3879c5d67de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionSpeed: .5
+  brightnessMultiplier: 2
+  isOver: 0
 --- !u!1001 &620226181
 Prefab:
   m_ObjectHideFlags: 0

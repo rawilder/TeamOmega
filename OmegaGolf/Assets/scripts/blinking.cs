@@ -23,7 +23,10 @@ public class blinking : MonoBehaviour {
 		float wallBounciness = wallEntity.bounceValue;
 
 		float lerp = Mathf.PingPong(Time.time, duration) / duration;
-		renderer.material.color = Color.Lerp(colorStart, colorEnd, wallBounciness);
+        if(!FindObjectOfType<HoverGlow>().isOver)
+        {
+            renderer.material.color = Color.Lerp(colorStart, colorEnd, wallBounciness);
+        }
 	
 
 		}
