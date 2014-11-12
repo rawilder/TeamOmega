@@ -12,7 +12,7 @@ public class CubeAnimation : MonoBehaviour {
 
     void Start()
     {
-        index = Random.Range(0.0f,1.0f);
+        index = Random.Range(0.0f,10.0f);
     }
 	
 	// Update is called once per frame

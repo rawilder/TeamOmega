@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     private float _wButtonHeight, _wButtonWidth, _wButtonX, _wButtonY, _wLeftButtonX, _wRightButtonX, _wLeftButtonY, _wLeftButtonW, _wLeftButtonH;
    // private int _wButtonFontSize;
     //level menu variables
-    private float _lButtonWidth, _lButtonHeight, _lButton1X, _lButton2X, _lButton3X, _lButtonY, _lStar1X, _lStar2X, _lStar3X, _lStarY, _lStarW, _lStarH;
+    private float _lButtonWidth, _lButtonHeight, _lButton1X, _lButtonDeltaX, _lButtonY;
     private int _lButtonFontSize;
  
     private enum MenuState
@@ -28,16 +28,18 @@ public class MainMenu : MonoBehaviour
         Level
     };
     private MenuState _state;
+
 #endregion
 
 #region Public Variables
     public Camera trailCam;
     public GUISkin defaultSkin;
     public Texture2D titleTexture;
-    public Texture2D NoStars;
-    public Texture2D OneStar;
-    public Texture2D TwoStars;
-    public Texture2D ThreeStars;
+    public Texture2D NoFlags;
+    public Texture2D OneFlag;
+    public Texture2D TwoFlags;
+    public Texture2D ThreeFlags;
+    public Texture2D Lock;
 
     /// <summary>
     /// Trick so that Unity will serialize inspector for us
@@ -52,6 +54,7 @@ public class MainMenu : MonoBehaviour
         public string level1Name;
         public string level2Name;
         public string level3Name;
+        public string level4Name;
     }
     public World[] worlds;
 
@@ -123,35 +126,28 @@ public class MainMenu : MonoBehaviour
         _mmTitleW = screenWidth * .8f;
         _mmTitleH = screenHeight  * .5f;
         //World selection variables
-        _wButtonHeight = screenHeight * 0.4f;
-        _wButtonWidth = screenWidth * 0.4f;
+        _wButtonHeight = (screenHeight * 0.3f) / worlds.Length;
+        _wButtonWidth = screenWidth * 0.2f;
         //_wButtonFontSize = Mathf.Min(Mathf.FloorToInt(_wButtonWidth * .3f), Mathf.FloorToInt(_wButtonHeight * .3f));
         _wButtonX = (screenWidth - _wButtonWidth) * 0.5f;
-        _wButtonY = (screenHeight - _wButtonHeight) * 0.5f;
+        _wButtonY = (screenHeight - _wButtonHeight) * 0.35f;
         _wLeftButtonX = _wButtonX - _wButtonWidth / 2;
         _wRightButtonX = _wButtonX + 1.25f * _wButtonWidth ;
         _wLeftButtonY = _wButtonY + _wButtonHeight / 4;
         _wLeftButtonW = _wButtonWidth / 4;
         _wLeftButtonH = _wButtonHeight / 2;
         //level selection variables
-        _lButtonWidth = screenWidth * .2f;
-        _lButtonHeight = screenHeight * .2f;
+        _lButtonWidth = screenWidth * .1f;
+        _lButtonHeight = screenHeight * .15f;
         _lButtonFontSize = Mathf.Min(Mathf.FloorToInt(_lButtonWidth * .25f), Mathf.FloorToInt(_lButtonHeight * .5f));
-        _lButton1X = screenWidth * .1f;
-        _lButton2X = _lButton1X + _lButtonWidth + _lButton1X;
-        _lButton3X = _lButton2X + _lButtonWidth + _lButton1X;
-        _lButtonY = (screenHeight - _lButtonHeight) * 0.5f;
-        _lStar1X = _lButton1X + .2f * _lButtonWidth;
-        _lStar2X = _lButton2X + .2f * _lButtonWidth;
-        _lStar3X = _lButton3X + .2f * _lButtonWidth;
-        _lStarY = _lButtonY + .7f * _lButtonHeight;
-        _lStarW = .6f * _lButtonWidth;
-        _lStarH = _lButtonHeight * .2f;
+        _lButton1X = screenWidth * .25f;
+        _lButtonDeltaX = _lButtonWidth * 1.25f;
+        _lButtonY = (screenHeight - _lButtonHeight) * 0.45f;
         //universal
         _backW = screenWidth * .15f;
         _backH = screenHeight * .15f;
-        _backX = screenWidth - _backW;
-        _backY = screenHeight - _backH;
+        _backX = screenWidth - _backW * 1.1f;
+        _backY = screenHeight - _backH * 1.1f;
         _backFontSize = Mathf.Min(Mathf.FloorToInt(_backW * .15f), Mathf.FloorToInt(_backH * .35f));
     }
 
@@ -163,7 +159,6 @@ public class MainMenu : MonoBehaviour
         GUI.skin.button.fontSize = _mmPlayFontSize;
         if (GUI.Button(new Rect(_mmPlayX, _mmPlayY, _mmPlayButtonWidth, _mmPlayButtonHeight), "Play")) {
             _state = MenuState.World;
-            StartCoroutine(CubeFall());
         }
         //Quit Button
         GUI.skin.button.fontSize = _mmQuitFontSize;
@@ -171,20 +166,9 @@ public class MainMenu : MonoBehaviour
             Application.Quit();
         }
         //Title
-        //GUI.skin.label.fontSize = _mmGolfFontSize;
-        //GUI.Label(new Rect(0, _mmTopMargin, screenWidth, _mmGolfHeight), "Golf");
-        //GUI.skin.label.fontSize = _mmProFontSize;
-        //GUI.Label(new Rect(0, _mmTopMargin + _mmGolfHeight, screenWidth, _mmProHeight), "PRO[gramming]");
+        //GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleBG);
         GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleTexture);
         
-    }
-    private IEnumerator CubeFall()
-    {
-        while (transform.position.y <= 4.9f)
-        {
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, 5, 4*Time.deltaTime), transform.position.z);
-            yield return null;
-        }
     }
 #endregion
 
@@ -200,6 +184,7 @@ public class MainMenu : MonoBehaviour
     }
     private void WorldGUI()
     {
+        /*
         //worlds[_worldIndex].buttonStyle.fontSize = _wButtonFontSize;
         if (GUIButtonTexture2D(new Rect(_wButtonX, _wButtonY, _wButtonWidth, _wButtonHeight), worlds[_worldIndex].worldTexture, worlds[_worldIndex].buttonStyle))
         {
@@ -220,30 +205,62 @@ public class MainMenu : MonoBehaviour
                 _worldIndex = 0;
             else
                 _worldIndex += 1;
+        }*/
+
+        for (int i = 0; i < worlds.Length; i++)
+        {
+            if (GUI.Button(new Rect(_wButtonX, _wButtonY + i *(_wButtonHeight * 1.25f) , _wButtonWidth, _wButtonHeight), worlds[i].worldName))
+            {
+                _worldIndex = i;
+                _state = MenuState.Level;
+            }
         }
 
-        //back button (bottom right corner)
-        GUI.skin.button.fontSize = _backFontSize;
+
+
+            //back button (bottom right corner)
+            GUI.skin.button.fontSize = _backFontSize;
         if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
         {
             _state = MenuState.Main;
-            StartCoroutine(CubeRise());
         }
     }
 
-    private IEnumerator CubeRise()
-    {
-        float firstY = transform.position.y;
-        while (transform.position.y >= 0.1f)
-        {
-            transform.position = new Vector3(transform.position.x , Mathf.Lerp(transform.position.y, 0, 4*Time.deltaTime) , transform.position.z);
-            yield return null;
-        }
-    }
 #endregion
 
 
 #region Level Selection Screen
+
+    private bool LevelButton(Rect buttonLoc, int flagCount, int levelNumber)
+    {
+        // button
+        //bool b = GUI.Button(buttonLoc, levelNumber.ToString());
+        //stars
+        Rect flagRect = new Rect(buttonLoc.x + .075f * buttonLoc.width, buttonLoc.y - .5f * buttonLoc.height, .75f * buttonLoc.width, buttonLoc.height);
+        switch(flagCount)
+        {
+            case 0:
+                GUI.DrawTexture(flagRect, NoFlags);
+                break;
+            case 1:
+                GUI.DrawTexture(flagRect, OneFlag);
+                break;
+            case 2:
+                GUI.DrawTexture(flagRect, TwoFlags);
+                break;
+            case 3:
+                GUI.DrawTexture(flagRect, ThreeFlags);
+                break;
+        }
+        return GUI.Button(buttonLoc, levelNumber.ToString()); ;
+    }
+    private bool LockedLevel(Rect buttonLoc)
+    {
+        bool b = GUI.Button(buttonLoc, string.Empty);
+        Rect lockRect = new Rect(buttonLoc.x + .25f*buttonLoc.width, buttonLoc.y + .1f * buttonLoc.height, .5f * buttonLoc.width, .7f * buttonLoc.height);
+        GUI.DrawTexture(lockRect, Lock);
+        return b;
+    }
     private void LevelGUI()
     {
         GUI.skin.label.fontSize = _mmGolfFontSize;
@@ -252,28 +269,36 @@ public class MainMenu : MonoBehaviour
         //can make a button grid later if we need more levels
         worlds[_worldIndex].buttonStyle.fontSize = _lButtonFontSize;
         //Level1
-        if (GUI.Button(new Rect(_lButton1X, _lButtonY, _lButtonWidth, _lButtonHeight), "1", worlds[_worldIndex].buttonStyle))
+        if (LevelButton(new Rect(_lButton1X, _lButtonY, _lButtonWidth, _lButtonHeight), 0 ,1))
         {
             Application.LoadLevel(worlds[_worldIndex].level1Name);
         }
-        GUI.DrawTexture(new Rect(_lStar1X, _lStarY, _lStarW, _lStarH), OneStar);
 
         //Level 2
-        if (GUI.Button(new Rect(_lButton2X, _lButtonY, _lButtonWidth, _lButtonHeight), "2", worlds[_worldIndex].buttonStyle))
+        if (LevelButton(new Rect(_lButton1X + _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), 1, 2))
         {
             Application.LoadLevel(worlds[_worldIndex].level2Name);
         }
-        GUI.DrawTexture(new Rect(_lStar2X, _lStarY, _lStarW, _lStarH), TwoStars);
 
         //Level 3
-        if (GUI.Button(new Rect(_lButton3X, _lButtonY, _lButtonWidth, _lButtonHeight), "3", worlds[_worldIndex].buttonStyle))
+        if (LevelButton(new Rect(_lButton1X + 2*_lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), 2, 3))
         {
             Application.LoadLevel(worlds[_worldIndex].level3Name);
         }
-        GUI.DrawTexture(new Rect(_lStar3X, _lStarY, _lStarW, _lStarH), ThreeStars);
 
-        //back button (bottom right corner)
-        GUI.skin.button.fontSize = _backFontSize;
+        //Level 4
+        if (LevelButton(new Rect(_lButton1X + 3 * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight),3,4))
+        {
+            Application.LoadLevel(worlds[_worldIndex].level3Name);
+        }
+
+        for (int i = 0; i < 4; i++ )
+        {
+            LockedLevel(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight));
+        }
+
+            //back button (bottom right corner)
+            GUI.skin.button.fontSize = _backFontSize;
         if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
         {
             _state = MenuState.World;
