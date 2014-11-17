@@ -69,7 +69,10 @@ public class BallBehavior : MonoBehaviour
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
+		rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
+
+		renderer.material.color = playerController.ballColor;
+		gameObject.layer = 0;
     }
 
     public void teleportToHole()
