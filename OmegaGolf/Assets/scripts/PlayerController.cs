@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 _lastAimPoint;
 	private int _frameCounter;
     private BallBehavior ballController;
+	private Color ballColor;
 
 	public float speedFactor = 400.0f;  //variable ball speed  
 	public float minInputRange = 0.25f;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
         ballState = BallState.moving;
         gameState = GameState.playing;
+		ballColor = renderer.material.color;
 
 		ballPlane = new Plane();
 		_frameCounter = 0;
@@ -71,9 +73,10 @@ public class PlayerController : MonoBehaviour
 	    _rb.angularVelocity = Vector3.zero;
         if (Input.GetKeyDown("r"))
         {
-           ballController.reset();
-
-        }
+			ballController.reset();
+			renderer.material.color = ballColor;
+			gameObject.layer = 0;
+		}
 
         if (Input.GetKeyDown("t"))
         {
@@ -245,5 +248,17 @@ public class PlayerController : MonoBehaviour
         ballState = BallState.moving;
 		arrowSprite.SetActive(false);
 
+	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.name == "polySurface1_levelone:polySurface1") {
+			renderer.material.color = Color.blue;
+			gameObject.layer = 10;
+		}
+		
+		if (col.gameObject.name == "testwall") {
+			renderer.material.color = ballColor;
+		}
 	}
 }
