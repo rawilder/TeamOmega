@@ -704,8 +704,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089736229}
-  m_LocalRotation: {x: 0, y: .382683486, z: 0, w: .923879564}
-  m_LocalPosition: {x: -1.55614209, y: -9.32098484, z: 13.976717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224242501}
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailCam: {fileID: 43451124}
   defaultSkin: {fileID: 11400000, guid: 67cd23e7a1bad8d43935e0b68df12735, type: 2}
-  titleTexture: {fileID: 2800000, guid: ebc7055d1edfe414ea3d386588af6a54, type: 3}
+  titleTexture: {fileID: 2800000, guid: 6cdc4ce0ad05675478d2715c4babf9b9, type: 3}
   NoFlags: {fileID: 2800000, guid: d09f4d4e809fb024f9025617332974e3, type: 3}
   OneFlag: {fileID: 2800000, guid: 66b63348dd414084b992518daa9093e0, type: 3}
   TwoFlags: {fileID: 2800000, guid: 8c6a1988794360f439f3b805ea30f5a1, type: 3}
@@ -888,7 +888,6 @@ MonoBehaviour:
   Lock: {fileID: 2800000, guid: 156186db260a4a94abdf063c273ab4d7, type: 3}
   worlds:
   - worldName: Forest
-    worldTexture: {fileID: 2800000, guid: 489eddd9046db6443816fd22c4c5671d, type: 3}
     buttonStyle:
       m_Name: 
       m_Normal:
@@ -896,7 +895,7 @@ MonoBehaviour:
         m_TextColor: {r: .20588237, g: .20588237, b: .20588237, a: 1}
       m_Hover:
         m_Background: {fileID: 2800000, guid: 3b6cfd0c0b14a064280ffee3a131a7a5, type: 3}
-        m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
+        m_TextColor: {r: .639705896, g: .639705896, b: .639705896, a: 1}
       m_Active:
         m_Background: {fileID: 2800000, guid: 3b6cfd0c0b14a064280ffee3a131a7a5, type: 3}
         m_TextColor: {r: .20784314, g: .20784314, b: .20784314, a: 1}
@@ -935,7 +934,7 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_Font: {fileID: 12800000, guid: 65b6346b50a6b7d45a661f067a8a24bf, type: 3}
       m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4
@@ -953,7 +952,6 @@ MonoBehaviour:
     level3Name: Level01_03
     level4Name: 
   - worldName: Mountain
-    worldTexture: {fileID: 2800000, guid: 85115d29c148e624294c5219e2022894, type: 3}
     buttonStyle:
       m_Name: 
       m_Normal:
@@ -961,7 +959,7 @@ MonoBehaviour:
         m_TextColor: {r: .20588237, g: .20588237, b: .20588237, a: 1}
       m_Hover:
         m_Background: {fileID: 2800000, guid: d286aacd552ae56499f241a592db1bc0, type: 3}
-        m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
+        m_TextColor: {r: .635294139, g: .635294139, b: .635294139, a: 1}
       m_Active:
         m_Background: {fileID: 2800000, guid: d286aacd552ae56499f241a592db1bc0, type: 3}
         m_TextColor: {r: .20784314, g: .20784314, b: .20784314, a: 1}
@@ -1000,7 +998,7 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_Font: {fileID: 12800000, guid: 65b6346b50a6b7d45a661f067a8a24bf, type: 3}
       m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4
@@ -1018,7 +1016,6 @@ MonoBehaviour:
     level3Name: 
     level4Name: 
   - worldName: Ice
-    worldTexture: {fileID: 2800000, guid: 05bc14683b5695346a0cb9236787d39c, type: 3}
     buttonStyle:
       m_Name: 
       m_Normal:
@@ -1026,7 +1023,7 @@ MonoBehaviour:
         m_TextColor: {r: .235294104, g: .235294104, b: .235294104, a: 1}
       m_Hover:
         m_Background: {fileID: 2800000, guid: 04cd9bfe1f3f41d4eb4c45dd759ba953, type: 3}
-        m_TextColor: {r: .75686276, g: .75686276, b: .75686276, a: 1}
+        m_TextColor: {r: .635294139, g: .635294139, b: .635294139, a: 1}
       m_Active:
         m_Background: {fileID: 2800000, guid: 04cd9bfe1f3f41d4eb4c45dd759ba953, type: 3}
         m_TextColor: {r: .235294119, g: .235294119, b: .235294119, a: 1}
@@ -1065,7 +1062,7 @@ MonoBehaviour:
         m_Right: 0
         m_Top: 0
         m_Bottom: 0
-      m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
+      m_Font: {fileID: 12800000, guid: 65b6346b50a6b7d45a661f067a8a24bf, type: 3}
       m_FontSize: 0
       m_FontStyle: 0
       m_Alignment: 4

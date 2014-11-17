@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: TitleUISkin
   m_EditorClassIdentifier: 
-  m_Font: {fileID: 12800000, guid: ad516963416189348bd1a68de2948613, type: 3}
+  m_Font: {fileID: 12800000, guid: 65b6346b50a6b7d45a661f067a8a24bf, type: 3}
   m_box:
     m_Name: box
     m_Normal:
@@ -78,7 +78,7 @@ MonoBehaviour:
       m_TextColor: {r: .176470578, g: .176470578, b: .176470578, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 8402ce791eace82458fc6a6603daec1f, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: .411764681, g: .411764681, b: .411764681, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 8402ce791eace82458fc6a6603daec1f, type: 3}
       m_TextColor: {r: .176470593, g: .176470593, b: .176470593, a: 1}
@@ -118,7 +118,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 36
+    m_FontSize: 28
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -235,8 +235,8 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 681ab93d8c684484588226462305aa23, type: 3}
-    m_FontSize: 137
+    m_Font: {fileID: 12800000, guid: 65b6346b50a6b7d45a661f067a8a24bf, type: 3}
+    m_FontSize: 82
     m_FontStyle: 0
     m_Alignment: 1
     m_WordWrap: 1
@@ -1192,123 +1192,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  m_CustomStyles:
-  - m_Name: LeftArrow
-    m_Normal:
-      m_Background: {fileID: 2800000, guid: e5e6e883c7e7ad7409db170f6104f70c, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Hover:
-      m_Background: {fileID: 2800000, guid: e5e6e883c7e7ad7409db170f6104f70c, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Active:
-      m_Background: {fileID: 2800000, guid: e5e6e883c7e7ad7409db170f6104f70c, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 0
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 0
-    m_StretchHeight: 0
-  - m_Name: RightArrow
-    m_Normal:
-      m_Background: {fileID: 2800000, guid: d6e216c16142c834cbd50a53804633e1, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Hover:
-      m_Background: {fileID: 2800000, guid: d6e216c16142c834cbd50a53804633e1, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Active:
-      m_Background: {fileID: 2800000, guid: d6e216c16142c834cbd50a53804633e1, type: 3}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 0}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 0
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 0
-    m_StretchHeight: 0
+  m_CustomStyles: []
   m_Settings:
     m_DoubleClickSelectsWord: 1
     m_TripleClickSelectsLine: 1

@@ -42,15 +42,10 @@ public class MainMenu : MonoBehaviour
     public Texture2D ThreeFlags;
     public Texture2D Lock;
 
-    /// <summary>
-    /// Trick so that Unity will serialize inspector for us
-    /// Access a level using using worlds[worldIndex].levels[levelIndex]
-    /// </summary>
     [System.Serializable]
     public class World
     {
         public string worldName;
-        public Texture2D worldTexture;
         public GUIStyle buttonStyle;
         public string level1Name;
         public string level2Name;
@@ -120,14 +115,14 @@ public class MainMenu : MonoBehaviour
         _mmGolfFontSize = Mathf.Min(Mathf.FloorToInt(screenWidth * .15f),Mathf.FloorToInt(screenHeight * .2f));
         _mmGolfHeight = _mmGolfFontSize * 1.25f;
         _mmTopMargin = screenHeight * .05f;
-        _mmTitleX = screenWidth * .1f;
-        _mmTitleY = _mmTopMargin * 2;
-        _mmTitleW = screenWidth * .8f;
-        _mmTitleH = screenHeight  * .5f;
+        _mmTitleX = screenWidth * .15f;
+        _mmTitleY = _mmTopMargin * 3;
+        _mmTitleW = screenWidth * .7f;
+        _mmTitleH = screenHeight  * .4f;
         //World selection variables
         _wButtonHeight = (screenHeight * 0.35f) / worlds.Length;
         _wButtonWidth = screenWidth * 0.25f;
-        _wButtonFontSize = Mathf.Min(Mathf.FloorToInt(_wButtonWidth * .15f), Mathf.FloorToInt(_wButtonHeight * .3f));
+        _wButtonFontSize = Mathf.Min(Mathf.FloorToInt(_wButtonWidth * .25f), Mathf.FloorToInt(_wButtonHeight * .45f));
         _wButtonX = (screenWidth - _wButtonWidth) * 0.5f;
         _wButtonY = (screenHeight - _wButtonHeight) * 0.35f;
         //level selection variables
@@ -160,7 +155,6 @@ public class MainMenu : MonoBehaviour
             Application.Quit();
         }
         //Title
-        //GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleBG);
         GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleTexture);
         
     }
@@ -225,8 +219,9 @@ public class MainMenu : MonoBehaviour
     }
     private void LevelGUI()
     {
-        GUI.skin.label.fontSize = _mmGolfFontSize;
-        GUI.Label(new Rect(0, _mmTopMargin, screenWidth, _mmGolfHeight), worlds[_worldIndex].worldName);
+        GUI.DrawTexture(new Rect(screenWidth/3, _mmTopMargin*1.5f, screenWidth/3, _mmGolfHeight/2), worlds[_worldIndex].buttonStyle.active.background);
+        GUI.skin.label.fontSize = Mathf.FloorToInt(_mmGolfFontSize/2.5f);
+        GUI.Label(new Rect(screenWidth/3, _mmTopMargin*2, screenWidth/3, _mmGolfHeight/2), worlds[_worldIndex].worldName);
         
         //for now just putting 3 buttons, since that is most we will have for a world right now.
         //can make a button grid later if we need more levels
@@ -259,7 +254,6 @@ public class MainMenu : MonoBehaviour
         {
             LockedLevel(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight));
         }
-
         //back button (bottom right corner)
         GUI.skin.button.fontSize = _backFontSize;
         if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
