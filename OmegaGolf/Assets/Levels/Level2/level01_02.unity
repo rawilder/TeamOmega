@@ -781,6 +781,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: bd1ea60b461957446a87c3f84461d798, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: bd1ea60b461957446a87c3f84461d798, type: 2}
+      propertyPath: InitialModule.startLifetime.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: bd1ea60b461957446a87c3f84461d798, type: 2}
+      propertyPath: InitialModule.startLifetime.minCurve.m_Curve.Array.data[0].value
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: bd1ea60b461957446a87c3f84461d798, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd1ea60b461957446a87c3f84461d798, type: 2}
   m_RootGameObject: {fileID: 2003713602}
@@ -835,7 +851,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d54c0d39ec511cc46bdafe40b59e4a46, type: 2}
       propertyPath: emitRate
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: d54c0d39ec511cc46bdafe40b59e4a46, type: 2}
       propertyPath: lengthInSec
@@ -938,7 +954,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: .100000001
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -997,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1eaa3755a38e469b591dc73badc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitRate: 20
+  emitRate: 0
 --- !u!199 &1037033404
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -2198,6 +2214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9f0468cf1079449a2d49e5efd5615e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballColor: {r: 0, g: 0, b: 0, a: 0}
   speedFactor: 400
   minInputRange: .25
   maxInputRange: 12
@@ -2289,7 +2306,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -2539,7 +2556,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .200000003
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2549,7 +2566,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: .200000003
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2759,7 +2776,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 3
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:

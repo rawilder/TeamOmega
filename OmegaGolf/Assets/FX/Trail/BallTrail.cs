@@ -17,7 +17,6 @@ public class BallTrail : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        _myTransform = transform;
         _rot = transform.rotation;
         _ball = _myTransform.parent;
 
