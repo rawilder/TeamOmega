@@ -17,6 +17,7 @@ public class BallTrail : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		_myTransform = transform;
         _rot = transform.rotation;
         _ball = _myTransform.parent;
 
@@ -39,7 +40,6 @@ public class BallTrail : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Emit here");
             _ps.emissionRate = emitRate;
         }
 	}

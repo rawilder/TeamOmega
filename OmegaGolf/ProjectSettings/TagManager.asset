@@ -8,6 +8,7 @@ TagManager:
   - HoleBounds
   - Editable
   - BlackHole
+  - IfWall
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

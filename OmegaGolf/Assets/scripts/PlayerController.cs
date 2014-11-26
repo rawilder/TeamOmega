@@ -121,6 +121,18 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+		//if walls
+		GameObject[] ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
+		foreach (GameObject g in ifWalls) {
+			if (this.renderer.material.color == g.renderer.material.color) {
+				Physics.IgnoreCollision(this.collider, g.collider);
+			} 
+			else {
+				Physics.IgnoreCollision(this.collider, g.collider, false);
+			}
+		}
+
 	}
 
 	private void CheckForBallStop()
@@ -250,9 +262,16 @@ public class PlayerController : MonoBehaviour
 
 	void OnTriggerEnter (Collider col)
 	{
+		/*if (col.gameObject.name == "blueIfWall") {
+
+			if (renderer.material.color != Color.blue)
+			{
+				_rb.AddForce(Vector3.Reflect(_rb.velocity, col.);
+			}
+
+		}*/		
 		if (col.gameObject.name == "blueIfPatch") {
-			renderer.material.color = Color.blue;
-			gameObject.layer = 10;
+			renderer.material = col.renderer.material;
 		}
 	}
 }
