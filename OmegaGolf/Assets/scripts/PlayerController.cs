@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     public Rect modeChangeRect;
     public bool victoryCondition;
 
+    public string worldName;
+    public int levelNumber;
+    public int par;
+
     public enum GameState
     {
         editing,
@@ -66,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
         _ballController = _rb.GetComponent<BallBehavior>();
         _ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
-
 	}
 
 	// Update is called once per frame
@@ -218,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(Screen.width * .03f, Screen.height * .85f, 1500, 1000), "<size=15>Press R to rest the level. \nPress E to redo the last shot with the same angle and force.\nPar: 1. \nYour score: " + strokeCount + "</size>");
+        GUI.Label(new Rect(Screen.width * .03f, Screen.height * .85f, 1500, 1000), "<size=15>Press R to rest the level. \nPress E to redo the last shot with the same angle and force.\nPar: "+par+". \nYour score: " + strokeCount + "</size>");
 
 		if (GUI.Button(modeChangeRect, modeChangeString)) 
 		{
@@ -239,7 +242,7 @@ public class PlayerController : MonoBehaviour
                 }
                 gameState = GameState.playing;
 		    }
-
+            AudioManager.Instance.playMenuSelect();
 		}
     }
 
@@ -251,6 +254,7 @@ public class PlayerController : MonoBehaviour
 		_rb.AddForce(dir.x * speedFactor, 0, dir.z * speedFactor);
         ballState = BallState.moving;
         strokeCount++;
+        AudioManager.Instance.playBounceWall();
 	}
 
 	public void redoShot()

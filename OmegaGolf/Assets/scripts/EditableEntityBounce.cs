@@ -22,7 +22,6 @@ public class EditableEntityBounce: MonoBehaviour
         drawEditor = false;
         bounceValue = 0.0f;
         physMaterial.bounciness = 1.0f;
-
     }
 
     // Update is called once per frame
@@ -73,9 +72,9 @@ public class EditableEntityBounce: MonoBehaviour
                 if (newBounceValue > 10)
                 {
                     newBounceValue = 10;
-                    textFieldString = newBounceValue.ToString();                   
+                    textFieldString = newBounceValue.ToString();
                 }
-
+                AudioManager.Instance.playChangeCode();
                 bounceValue = newBounceValue / 10.0f;
             }
         }

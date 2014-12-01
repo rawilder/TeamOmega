@@ -1579,7 +1579,6 @@ GameObject:
   - 20: {fileID: 419969919}
   - 92: {fileID: 419969918}
   - 124: {fileID: 419969917}
-  - 81: {fileID: 419969916}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1600,13 +1599,6 @@ Transform:
   - {fileID: 901594924}
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!81 &419969916
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 419969914}
-  m_Enabled: 1
 --- !u!124 &419969917
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3743,6 +3735,18 @@ Prefab:
       propertyPath: emitRate
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: par
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: worldName
+      value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: levelNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
   m_RootGameObject: {fileID: 1831741768}
@@ -5518,6 +5522,9 @@ MonoBehaviour:
     width: 0
     height: 0
   victoryCondition: 0
+  worldName: Forest
+  levelNumber: 2
+  par: 2
   gameState: 0
   ballState: 0
   modeChangeString: 

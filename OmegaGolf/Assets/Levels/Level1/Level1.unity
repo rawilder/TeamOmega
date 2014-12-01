@@ -312,7 +312,6 @@ GameObject:
   - 20: {fileID: 419969919}
   - 92: {fileID: 419969918}
   - 124: {fileID: 419969917}
-  - 81: {fileID: 419969916}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -333,13 +332,6 @@ Transform:
   - {fileID: 901594924}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!81 &419969916
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 419969914}
-  m_Enabled: 1
 --- !u!124 &419969917
 Behaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +705,14 @@ Prefab:
       propertyPath: emitRate
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: par
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: worldName
+      value: Forest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
   m_RootGameObject: {fileID: 1831741768}
@@ -933,6 +933,9 @@ MonoBehaviour:
     width: 0
     height: 0
   victoryCondition: 0
+  worldName: Forest
+  levelNumber: 0
+  par: 1
   gameState: 0
   ballState: 0
   modeChangeString: 
@@ -949,6 +952,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf28b29a801b2b49bb97ab2979be00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSkin: {fileID: 11400000, guid: 1ddabe4ef7e5a6d4a8d56bb11bb96574, type: 2}
+  noflag: {fileID: 2800000, guid: d09f4d4e809fb024f9025617332974e3, type: 3}
+  oneflag: {fileID: 2800000, guid: 66b63348dd414084b992518daa9093e0, type: 3}
+  twoflag: {fileID: 2800000, guid: 8c6a1988794360f439f3b805ea30f5a1, type: 3}
+  threeflag: {fileID: 2800000, guid: 85e2dd8a6b041ed49b2c539178ad293b, type: 3}
+  gBall: {fileID: 2800000, guid: 6c08c12227bb60246b5c4743b5260c02, type: 3}
 --- !u!54 &1831741773
 Rigidbody:
   m_ObjectHideFlags: 0

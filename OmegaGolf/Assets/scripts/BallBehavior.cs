@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Xml;
 public class BallBehavior : MonoBehaviour
 {
 
@@ -38,6 +38,26 @@ public class BallBehavior : MonoBehaviour
         if(collision.gameObject.CompareTag("HoleBounds"))
         {
             playerController.victoryCondition = true;
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Assets/Scores.xml");
+            XmlNode root = doc.SelectSingleNode("Worlds/"+playerController.worldName);
+            foreach(XmlNode level in root.ChildNodes)
+            {
+                if(int.Parse(level.Attributes["number"].InnerText) == playerController.levelNumber)
+                {
+                    int flagCount;
+                    if (playerController.strokeCount <= playerController.par)
+                        flagCount = 3;
+                    else if (playerController.strokeCount <= playerController.par + 1)
+                        flagCount = 2;
+                    else
+                        flagCount = 1;
+                    level.Attributes["flags"].InnerText = Mathf.Max(int.Parse(level.Attributes["flags"].InnerText) , flagCount).ToString();
+                    doc.Save("Assets/Scores.xml");
+                    return;
+                }
+            }
+
         }
 
     }
@@ -49,6 +69,7 @@ public class BallBehavior : MonoBehaviour
         {
             Debug.Log("hey hacky shit here");
             rb.AddForce(rb.velocity * (100f * collision.gameObject.GetComponent<EditableEntityBounce>().bounceValue));
+            AudioManager.Instance.playBounceWall();
         }
     }
 
@@ -82,13 +103,20 @@ public class BallBehavior : MonoBehaviour
     {
         //Level Complete Text
         GUI.skin.label.fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .1f), Mathf.FloorToInt(windowHeight * .15f));
-        GUI.Label(new Rect(0, windowHeight * .1f, windowWidth, windowHeight * .2f), "Level Complete!");
+        GUI.Label(new Rect(0, windowHeight * .075f, windowWidth, windowHeight * .2f), "Level Complete!");
         GUI.skin.label.fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .15f), Mathf.FloorToInt(windowHeight * .05f));
         GUI.Label(new Rect(0, windowHeight * .85f, windowWidth, windowHeight * .15f), "Strokes : " + playerController.strokeCount, GUI.skin.customStyles[0]);
 
         float ballWidth = Mathf.Min(windowWidth*.25f, windowHeight*.25f);
         float ballHeight = ballWidth;
-        GUI.DrawTexture(new Rect((windowWidth - ballWidth*2) * .475f, (windowHeight - ballHeight*2) * .7f, ballWidth*2, ballHeight*2), twoflag);
+        Texture2D flag;
+        if (playerController.strokeCount <= playerController.par)
+            flag = threeflag;
+        else if (playerController.strokeCount <= playerController.par + 1)
+            flag = twoflag;
+        else
+            flag = oneflag;
+        GUI.DrawTexture(new Rect((windowWidth - ballWidth*2) * .475f, (windowHeight - ballHeight*2) * .7f, ballWidth*2, ballHeight*2), flag);
         GUI.DrawTexture(new Rect((windowWidth - ballWidth) * .5f, (windowHeight - ballHeight) * .8f, ballWidth, ballHeight), gBall);
         float buttonWidth = windowWidth * .25f;
         float buttonHeight = windowHeight * .15f;

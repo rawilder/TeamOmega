@@ -75,7 +75,7 @@ public class EditableEntityIfWall : MonoBehaviour
                     newBounceValue = 10;
                     textFieldString = newBounceValue.ToString();                   
                 }
-
+                AudioManager.Instance.playChangeCode();
                 bounceValue = newBounceValue / 10.0f;
             }
         }

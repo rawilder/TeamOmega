@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawEditor: 0
-  physMaterial: {fileID: 0}
+  physMaterial: {fileID: 13400000, guid: 3d3e579dd4e7ad84882e34c56d682012, type: 2}
   bounceValue: 0
   editType: 0
 --- !u!64 &529024185
@@ -754,7 +754,6 @@ GameObject:
   - 20: {fileID: 1015053107}
   - 92: {fileID: 1015053106}
   - 124: {fileID: 1015053105}
-  - 81: {fileID: 1015053104}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -762,13 +761,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1015053104
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1015053103}
-  m_Enabled: 1
 --- !u!124 &1015053105
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2015,6 +2007,18 @@ Prefab:
       propertyPath: gBall
       value: 
       objectReference: {fileID: 2800000, guid: 6c08c12227bb60246b5c4743b5260c02, type: 3}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: par
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: worldName
+      value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: levelNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
   m_RootGameObject: {fileID: 1274792326}
@@ -2160,6 +2164,9 @@ MonoBehaviour:
     width: 0
     height: 0
   victoryCondition: 0
+  worldName: Forest
+  levelNumber: 1
+  par: 1
   gameState: 0
   ballState: 0
   modeChangeString: 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
 
 public class MainMenu : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class MainMenu : MonoBehaviour
         public string worldName;
         public GUIStyle buttonStyle;
         public string[] levelNames = new string[8];
-
+        public int[] levelFlags = new int[8];
     }
     public World[] worlds;
 
@@ -64,6 +65,17 @@ public class MainMenu : MonoBehaviour
         screenWidth = Screen.width;
         CalculateDimensions();
         _worldIndex = 0;
+
+        XmlDocument doc = new XmlDocument();
+        doc.Load("Assets/Scores.xml");
+        for (int i = 0; i < worlds.Length; i++)
+        {
+            XmlNode root = doc.SelectSingleNode("Worlds/"+worlds[i].worldName);
+            foreach (XmlNode level in root.ChildNodes)
+            {
+                worlds[i].levelFlags[int.Parse(level.Attributes["number"].InnerText)] = int.Parse(level.Attributes["flags"].InnerText);
+            }
+        }
 	}
 
     void Update()
@@ -148,11 +160,13 @@ public class MainMenu : MonoBehaviour
         GUI.skin.button.fontSize = _mmPlayFontSize;
         if (GUI.Button(new Rect(_mmPlayX, _mmPlayY, _mmPlayButtonWidth, _mmPlayButtonHeight), "Play")) {
             _state = MenuState.World;
+            AudioManager.Instance.playMenuSelect();
         }
         //Quit Button
         GUI.skin.button.fontSize = _mmQuitFontSize;
         if (GUI.Button(new Rect(_mmQuitX, _mmQuitY, _mmQuitButtonWidth, _mmQuitButtonHeight), "Quit")){
             Application.Quit();
+            AudioManager.Instance.playMenuSelect();
         }
         //Title
         GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleTexture);
@@ -171,6 +185,7 @@ public class MainMenu : MonoBehaviour
             {
                 _worldIndex = i;
                 _state = MenuState.Level;
+                AudioManager.Instance.playMenuSelect();
             }
         }
         //back button (bottom right corner)
@@ -178,6 +193,7 @@ public class MainMenu : MonoBehaviour
         if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
         {
             _state = MenuState.Main;
+            AudioManager.Instance.playMenuSelect();
         }
     }
 
@@ -225,30 +241,6 @@ public class MainMenu : MonoBehaviour
         //for now just putting 3 buttons, since that is most we will have for a world right now.
         //can make a button grid later if we need more levels
         worlds[_worldIndex].buttonStyle.fontSize = _lButtonFontSize;
-        //Level1
-        /*
-        if (LevelButton(new Rect(_lButton1X, _lButtonY, _lButtonWidth, _lButtonHeight), 0 ,1))
-        {
-            Application.LoadLevel(worlds[_worldIndex].level1Name);
-        }
-
-        //Level 2
-        if (LevelButton(new Rect(_lButton1X + _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), 1, 2))
-        {
-            Application.LoadLevel(worlds[_worldIndex].level2Name);
-        }
-
-        //Level 3
-        if (LevelButton(new Rect(_lButton1X + 2*_lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), 2, 3))
-        {
-            Application.LoadLevel(worlds[_worldIndex].level3Name);
-        }
-
-        //Level 4
-        if (LevelButton(new Rect(_lButton1X + 3 * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight),3,4))
-        {
-            Application.LoadLevel(worlds[_worldIndex].level4Name);
-        }*/
         for (int i = 0; i < 4; i++ )
         {
             if(string.IsNullOrEmpty(worlds[_worldIndex].levelNames[i]))
@@ -257,9 +249,10 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                if (LevelButton(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), i%4, i+1))
+                if (LevelButton(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), worlds[_worldIndex].levelFlags[i], i+1))
                 {
                     Application.LoadLevel(worlds[_worldIndex].levelNames[i]);
+                    AudioManager.Instance.playMenuSelect();
                 }
             }
         }
@@ -271,9 +264,10 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                if (LevelButton(new Rect(_lButton1X + (i - 4) * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight), i % 4, i + 1))
+                if (LevelButton(new Rect(_lButton1X + (i - 4) * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight), worlds[_worldIndex].levelFlags[i], i + 1))
                 {
                     Application.LoadLevel(worlds[_worldIndex].levelNames[i]);
+                    AudioManager.Instance.playMenuSelect();
                 }
             }
         }
@@ -282,6 +276,7 @@ public class MainMenu : MonoBehaviour
         if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
         {
             _state = MenuState.World;
+            AudioManager.Instance.playMenuSelect();
         }
     }
 #endregion
