@@ -381,7 +381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawEditor: 0
-  physMaterial: {fileID: 0}
   bounceValue: 0
   editType: 0
 --- !u!64 &529024185
@@ -422,8 +421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ec060fd25331249a5ad3879c5d67de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: .5
-  brightnessMultiplier: 2
+  transitionSpeed: 3
+  brightnessMultiplier: 1.29999995
   isOver: 0
 --- !u!1001 &620226181
 Prefab:

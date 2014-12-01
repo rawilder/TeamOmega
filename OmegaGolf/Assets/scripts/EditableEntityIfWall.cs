@@ -8,7 +8,7 @@ public class EditableEntityIfWall : MonoBehaviour
     public bool drawEditor;
     private PlayerController playerController;
     
-    public PhysicMaterial physMaterial;
+
     public float bounceValue;
 
 	public EditType editType;  
@@ -21,7 +21,7 @@ public class EditableEntityIfWall : MonoBehaviour
         textFieldString = (bounceValue*10).ToString();
         drawEditor = false;
         bounceValue = 0.0f;
-        physMaterial.bounciness = 1.0f;
+
 
     }
 

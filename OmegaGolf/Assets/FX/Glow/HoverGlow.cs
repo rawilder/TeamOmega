@@ -6,7 +6,7 @@ public class HoverGlow : MonoBehaviour {
 
     private Color normalColor;
     private Color hoverColor;
-    public float transitionSpeed = 1.0f;
+    public float transitionSpeed = 2.0f;
     public float brightnessMultiplier = 1.3f;
     private MeshRenderer _mr;
     public bool isOver;
@@ -36,7 +36,7 @@ public class HoverGlow : MonoBehaviour {
                 transitionToHover = true;
                 timer = 0;
             }
-            Debug.Log("hello?");
+
             if (transitionToHover)
             {
                 timer += Time.deltaTime;
@@ -45,10 +45,8 @@ public class HoverGlow : MonoBehaviour {
                     timer = 2;
                 }
                 _mr.material.color = Color.Lerp(normalColor, hoverColor, transitionSpeed * timer);
-                Debug.Log(transitionSpeed * timer);
                 if (_mr.material.color == hoverColor)
                 {
-                    Debug.Log("hover color check");
                     transitionToHover = false;
                     timer = 0;
                 }
@@ -60,7 +58,6 @@ public class HoverGlow : MonoBehaviour {
                 {
                     timer = 2;
                 }
-                Debug.Log(transitionSpeed * timer);
                 _mr.material.color = Color.Lerp(hoverColor, normalColor, transitionSpeed * timer);
             }
         }
@@ -69,12 +66,6 @@ public class HoverGlow : MonoBehaviour {
     void OnMouseEnter()
     {
         isOver = true;
-    }
-
-    void OnMouseOver()
-    {
-        _mr.material.color = Color.Lerp(_mr.material.color, hoverColor, transitionSpeed * Time.deltaTime);
-       // Debug.Log(transitionSpeed * Time.deltaTime);
     }
 
     void OnMouseExit()

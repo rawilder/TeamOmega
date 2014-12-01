@@ -7,8 +7,7 @@ public class EditableEntityBounce: MonoBehaviour
     private string textFieldString;
     public bool drawEditor;
     private PlayerController playerController;
-    
-    public PhysicMaterial physMaterial;
+
     public float bounceValue;
 
 	public EditType editType;  
@@ -21,7 +20,7 @@ public class EditableEntityBounce: MonoBehaviour
         textFieldString = (bounceValue*10).ToString();
         drawEditor = false;
         bounceValue = 0.0f;
-        physMaterial.bounciness = 1.0f;
+
 
     }
 
@@ -57,7 +56,10 @@ public class EditableEntityBounce: MonoBehaviour
 
     void WindowFunction(int windowID)
     {
-        GUI.Label(new Rect(10, 25, 250, 75), "<b><size=20>int bounceValue =     ;</size></b>");
+		GUI.Label(new Rect(10, 25, 250, 75), new GUIContent("<b><size=20>int </size></b>", "The data type of this variable is integer"));
+		GUI.Label(new Rect(50, 25, 250, 75), new GUIContent("<b><size=20>   bounceValue =     ;</size></b>", "Variable name bounceValue"));
+		
+		GUI.Label (new Rect (10,40,100,40), GUI.tooltip);
 
         textFieldString = GUI.TextField(new Rect(185, 28, 25, 20), textFieldString, 2);
         textFieldString = Regex.Replace(textFieldString, "[^0-9]", "");
