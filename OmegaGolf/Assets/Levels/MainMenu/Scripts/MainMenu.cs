@@ -5,6 +5,9 @@ public class MainMenu : MonoBehaviour
 {
 
 #region Private Variables
+
+   
+
     private float screenHeight;
     private float screenWidth;
 
@@ -47,10 +50,8 @@ public class MainMenu : MonoBehaviour
     {
         public string worldName;
         public GUIStyle buttonStyle;
-        public string level1Name;
-        public string level2Name;
-        public string level3Name;
-        public string level4Name;
+        public string[] levelNames = new string[8];
+
     }
     public World[] worlds;
 
@@ -143,7 +144,6 @@ public class MainMenu : MonoBehaviour
 #region Main Title Screen
     private void MainGUI()
     {
-       
         //Play Button
         GUI.skin.button.fontSize = _mmPlayFontSize;
         if (GUI.Button(new Rect(_mmPlayX, _mmPlayY, _mmPlayButtonWidth, _mmPlayButtonHeight), "Play")) {
@@ -156,7 +156,6 @@ public class MainMenu : MonoBehaviour
         }
         //Title
         GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleTexture);
-        
     }
 #endregion
 
@@ -219,14 +218,15 @@ public class MainMenu : MonoBehaviour
     }
     private void LevelGUI()
     {
-        GUI.DrawTexture(new Rect(screenWidth/3, _mmTopMargin*1.5f, screenWidth/3, _mmGolfHeight/2), worlds[_worldIndex].buttonStyle.active.background);
-        GUI.skin.label.fontSize = Mathf.FloorToInt(_mmGolfFontSize/2.5f);
-        GUI.Label(new Rect(screenWidth/3, _mmTopMargin*2, screenWidth/3, _mmGolfHeight/2), worlds[_worldIndex].worldName);
+        //GUI.DrawTexture(new Rect(screenWidth/3, _mmTopMargin*1.5f, screenWidth/3, _mmGolfHeight/2), worlds[_worldIndex].buttonStyle.active.background);
+        GUI.skin.label.fontSize = Mathf.FloorToInt(_mmGolfFontSize);
+        GUI.Label(new Rect(0, _mmTopMargin*2, screenWidth, _mmGolfHeight), worlds[_worldIndex].worldName);
         
         //for now just putting 3 buttons, since that is most we will have for a world right now.
         //can make a button grid later if we need more levels
         worlds[_worldIndex].buttonStyle.fontSize = _lButtonFontSize;
         //Level1
+        /*
         if (LevelButton(new Rect(_lButton1X, _lButtonY, _lButtonWidth, _lButtonHeight), 0 ,1))
         {
             Application.LoadLevel(worlds[_worldIndex].level1Name);
@@ -248,11 +248,34 @@ public class MainMenu : MonoBehaviour
         if (LevelButton(new Rect(_lButton1X + 3 * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight),3,4))
         {
             Application.LoadLevel(worlds[_worldIndex].level4Name);
-        }
-
+        }*/
         for (int i = 0; i < 4; i++ )
         {
-            LockedLevel(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight));
+            if(string.IsNullOrEmpty(worlds[_worldIndex].levelNames[i]))
+            {
+                LockedLevel(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight));
+            }
+            else
+            {
+                if (LevelButton(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight), i%4, i+1))
+                {
+                    Application.LoadLevel(worlds[_worldIndex].levelNames[i]);
+                }
+            }
+        }
+        for (int i = 4; i < 8; i++)
+        {
+            if (string.IsNullOrEmpty(worlds[_worldIndex].levelNames[i]))
+            {
+                LockedLevel(new Rect(_lButton1X + (i-4) * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight));
+            }
+            else
+            {
+                if (LevelButton(new Rect(_lButton1X + (i - 4) * _lButtonDeltaX, _lButtonY + 1.5f * _lButtonHeight, _lButtonWidth, _lButtonHeight), i % 4, i + 1))
+                {
+                    Application.LoadLevel(worlds[_worldIndex].levelNames[i]);
+                }
+            }
         }
         //back button (bottom right corner)
         GUI.skin.button.fontSize = _backFontSize;
