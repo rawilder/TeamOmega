@@ -304,10 +304,10 @@ GameObject:
   - 33: {fileID: 529024181}
   - 23: {fileID: 529024180}
   - 64: {fileID: 529024183}
-  - 114: {fileID: 529024184}
   - 64: {fileID: 529024185}
   - 114: {fileID: 529024186}
   - 114: {fileID: 529024187}
+  - 114: {fileID: 529024184}
   m_Layer: 0
   m_Name: polySurface1_levelone:polySurface1
   m_TagString: Editable
@@ -377,12 +377,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 529024179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4983a403157755749aca780b5d806f7c, type: 3}
+  m_Script: {fileID: 11500000, guid: ab796ddd73787f9428afbfdfc6e9d648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   drawEditor: 0
-  physMaterial: {fileID: 13400000, guid: 3d3e579dd4e7ad84882e34c56d682012, type: 2}
+  physMaterial: {fileID: 0}
   bounceValue: 0
+  editType: 0
 --- !u!64 &529024185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -857,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1eaa3755a38e469b591dc73badc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitRate: 0
+  emitRate: 20
 --- !u!199 &1037033404
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -1989,6 +1990,31 @@ Prefab:
       propertyPath: arrowSprite
       value: 
       objectReference: {fileID: 1757113790}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: uiSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ddabe4ef7e5a6d4a8d56bb11bb96574,
+        type: 2}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: noflag
+      value: 
+      objectReference: {fileID: 2800000, guid: d09f4d4e809fb024f9025617332974e3, type: 3}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: oneflag
+      value: 
+      objectReference: {fileID: 2800000, guid: 66b63348dd414084b992518daa9093e0, type: 3}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: twoflag
+      value: 
+      objectReference: {fileID: 2800000, guid: 8c6a1988794360f439f3b805ea30f5a1, type: 3}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: threeflag
+      value: 
+      objectReference: {fileID: 2800000, guid: 85e2dd8a6b041ed49b2c539178ad293b, type: 3}
+    - target: {fileID: 11400002, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
+      propertyPath: gBall
+      value: 
+      objectReference: {fileID: 2800000, guid: 6c08c12227bb60246b5c4743b5260c02, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
   m_RootGameObject: {fileID: 1274792326}
@@ -2100,6 +2126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf28b29a801b2b49bb97ab2979be00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSkin: {fileID: 11400000, guid: 1ddabe4ef7e5a6d4a8d56bb11bb96574, type: 2}
+  noflag: {fileID: 2800000, guid: d09f4d4e809fb024f9025617332974e3, type: 3}
+  oneflag: {fileID: 2800000, guid: 66b63348dd414084b992518daa9093e0, type: 3}
+  twoflag: {fileID: 2800000, guid: 8c6a1988794360f439f3b805ea30f5a1, type: 3}
+  threeflag: {fileID: 2800000, guid: 85e2dd8a6b041ed49b2c539178ad293b, type: 3}
+  gBall: {fileID: 2800000, guid: 6c08c12227bb60246b5c4743b5260c02, type: 3}
 --- !u!114 &1274792333
 MonoBehaviour:
   m_ObjectHideFlags: 0

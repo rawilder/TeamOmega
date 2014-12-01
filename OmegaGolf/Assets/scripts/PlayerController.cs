@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody _rb;
 	private Ray _r;
 	private RaycastHit _hit;
-	private Plane ballPlane;
+	private Plane _ballPlane;
 	private Transform _myTransform;
 	private Vector3 _lastAimPoint;
 	private int _frameCounter;
-    private BallBehavior ballController;
+    private BallBehavior _ballController;
+    private GameObject[] _ifWalls;
 
 	public Color ballColor;
 	public float speedFactor = 400.0f;  //variable ball speed  
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
         gameState = GameState.playing;
 		ballColor = renderer.material.color;
 		
-		ballPlane = new Plane();
+		_ballPlane = new Plane();
 		_frameCounter = 0;
 		arrowSprite.SetActive(false);
 		Vector3 lastShotPostion;
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
 
         modeChangeRect = new Rect(0, 0, 75, 40);
 
-        ballController = _rb.GetComponent<BallBehavior>();
+        _ballController = _rb.GetComponent<BallBehavior>();
+        _ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
 
 	}
 
@@ -73,12 +75,12 @@ public class PlayerController : MonoBehaviour
 	    _rb.angularVelocity = Vector3.zero;
         if (Input.GetKeyDown("r"))
         {
-			ballController.reset();
+			_ballController.reset();
 		}
 
         if (Input.GetKeyDown("t"))
         {
-            ballController.teleportToHole();
+            _ballController.teleportToHole();
         }
 
 		if (Input.GetKeyDown ("e"))
@@ -123,8 +125,8 @@ public class PlayerController : MonoBehaviour
         }
 
 		//if walls
-		GameObject[] ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
-		foreach (GameObject g in ifWalls) {
+        foreach (GameObject g in _ifWalls)
+        {
 			if (this.renderer.material.color == g.renderer.material.color) {
 				Physics.IgnoreCollision(this.collider, g.collider);
 			} 
@@ -154,7 +156,7 @@ public class PlayerController : MonoBehaviour
 	private void Aiming()
 	{
 
-		ballPlane.SetNormalAndPosition(Vector3.up, _myTransform.position);
+		_ballPlane.SetNormalAndPosition(Vector3.up, _myTransform.position);
 		arrowSprite.transform.position = _myTransform.position;
 		arrowSprite.transform.localScale = new Vector3(0, 0, 0);
 		arrowSprite.SetActive(true);
@@ -162,7 +164,7 @@ public class PlayerController : MonoBehaviour
 		//Draw line from ball center to current mouse position
 		_r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		float rayDist;
-		if (ballPlane.Raycast(_r, out rayDist))
+		if (_ballPlane.Raycast(_r, out rayDist))
 		{
 			Vector3 pos = _r.GetPoint(rayDist);
 			if (Vector3.Distance(_myTransform.position, pos) < minInputRange)
@@ -227,7 +229,11 @@ public class PlayerController : MonoBehaviour
 		    }
             else
 		    {
-		        foreach (var e in FindObjectsOfType<EditableEntity>())
+		        foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+                {
+                    e.drawEditor = false;
+                }
+                foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
                 {
                     e.drawEditor = false;
                 }

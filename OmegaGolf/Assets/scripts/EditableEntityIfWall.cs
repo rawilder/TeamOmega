@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Text.RegularExpressions;
 
-public class EditableEntity : MonoBehaviour
+public class EditableEntityIfWall : MonoBehaviour
 {
     private string textFieldString;
     public bool drawEditor;

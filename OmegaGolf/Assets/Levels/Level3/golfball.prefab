@@ -202,6 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf28b29a801b2b49bb97ab2979be00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSkin: {fileID: 11400000, guid: 1ddabe4ef7e5a6d4a8d56bb11bb96574, type: 2}
+  noflag: {fileID: 2800000, guid: d09f4d4e809fb024f9025617332974e3, type: 3}
+  oneflag: {fileID: 2800000, guid: 66b63348dd414084b992518daa9093e0, type: 3}
+  twoflag: {fileID: 2800000, guid: 8c6a1988794360f439f3b805ea30f5a1, type: 3}
+  threeflag: {fileID: 2800000, guid: 85e2dd8a6b041ed49b2c539178ad293b, type: 3}
+  gBall: {fileID: 2800000, guid: 6c08c12227bb60246b5c4743b5260c02, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
