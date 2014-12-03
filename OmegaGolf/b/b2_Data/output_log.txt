@@ -1,0 +1,45 @@
+Initialize engine version: 4.5.4f1 (e036f44c54c9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD FirePro W7000 (FireGL V) Graphics Adapter (ID=0x6808)
+    Vendor:   ATI
+    VRAM:     4054 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.040 seconds
+desktop: 1920x1200 60Hz; virtual: 3840x1200 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\mws0219\Documents\GitHub\TeamOmega\OmegaGolf\b\b2_Data\Managed\System.dll (this message is harmless)
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenu.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+UnloadTime: 0.293272 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 723.
+Total: 0.602382 ms (FindLiveObjects: 0.018182 ms CreateObjectMapping: 0.009091 ms MarkObjects: 0.155434 ms  DeleteObjects: 0.052789 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at BallBehavior.OnCollisionEnter (UnityEngine.Collision collision) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+UnloadTime: 0.957829 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 102 unused Assets to reduce memory usage. Loaded Objects now: 347.
+Total: 0.669248 ms (FindLiveObjects: 0.012024 ms CreateObjectMapping: 0.009091 ms MarkObjects: 0.140770 ms  DeleteObjects: 0.178603 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenu.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

@@ -36,9 +36,10 @@ public class BallBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("HoleBounds"))
+        if(collision.gameObject.CompareTag("HoleBounds") && !playerController.victoryCondition)
         {
             playerController.victoryCondition = true;
+            AudioManager.Instance.playCheer();
             XmlDocument doc = new XmlDocument();
             doc.Load("Assets/Scores.xml");
             XmlNode root = doc.SelectSingleNode("Worlds/"+playerController.worldName);

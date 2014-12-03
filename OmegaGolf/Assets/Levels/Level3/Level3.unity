@@ -5418,7 +5418,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
       propertyPath: worldName
-      value: Forest
+      value: Desert
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 7684f2ba40cf3e84fb97da24f9b65fe9, type: 2}
       propertyPath: levelNumber
@@ -6544,7 +6544,7 @@ MonoBehaviour:
   victoryCondition: 0
   defaultSkin: {fileID: 11400000, guid: 67cd23e7a1bad8d43935e0b68df12735, type: 2}
   phaseWall: 0
-  worldName: Forest
+  worldName: Desert
   levelNumber: 2
   par: 2
   gameState: 0

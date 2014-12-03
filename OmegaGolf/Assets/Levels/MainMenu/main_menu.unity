@@ -356,6 +356,7 @@ GameObject:
   - 82: {fileID: 146970147}
   - 82: {fileID: 146970146}
   - 82: {fileID: 146970145}
+  - 82: {fileID: 146970149}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Audio
@@ -378,6 +379,7 @@ MonoBehaviour:
   changeCode: {fileID: 146970148}
   menuHover: {fileID: 146970146}
   menuSelect: {fileID: 146970145}
+  cheer: {fileID: 146970149}
 --- !u!82 &146970142
 AudioSource:
   m_ObjectHideFlags: 0
@@ -638,6 +640,64 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 6195bc8008ca98245833395b139114bf, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &146970149
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 146970140}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: eaba0630105e61648909fbba75ec9259, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2304,7 +2364,7 @@ MonoBehaviour:
   ThreeFlags: {fileID: 2800000, guid: 85e2dd8a6b041ed49b2c539178ad293b, type: 3}
   Lock: {fileID: 2800000, guid: 156186db260a4a94abdf063c273ab4d7, type: 3}
   worlds:
-  - worldName: Forest
+  - worldName: Desert
     buttonStyle:
       m_Name: 
       m_Normal:

@@ -4,7 +4,7 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
 
 
-    public  AudioSource bounceWall, changeCode, menuHover, menuSelect;
+    public  AudioSource bounceWall, changeCode, menuHover, menuSelect, cheer;
 
     public static AudioManager Instance { get; private set; }
 
@@ -64,6 +64,9 @@ public class AudioManager : MonoBehaviour {
     {
         Instance.menuSelect.Play();
     }
-
+    public void playCheer()
+    {
+        Instance.cheer.Play();
+    }
 	
 }

@@ -208,7 +208,8 @@ public class MainMenu : MonoBehaviour
     private void HelpGUI()
     {
         GUI.skin.label.alignment = TextAnchor.UpperCenter;
-        GUI.Label(new Rect(screenWidth * .125f, 150f, screenWidth * .75f, screenHeight), "<size=84>Welcome to Golf Programming!</size><size=45>\n\nWhere the fundamentals of programming meets mini golf!\n\nThe mouse is used to aim and set the power of your shot.\nLeft clicking will shoot the ball accordingly.\nPressing R will restart the level.\n\nClick the button in the top left to look at the code of the level.\nPut your mouse over the pop-up code editor to learn more about what it does!\nClick the top left button again to resume play.\n\nPress escape to return to the menu.</size>");
+        GUI.skin.label.fontSize = Mathf.FloorToInt(Mathf.Min(screenHeight * .05f, screenWidth * .05f));
+        GUI.Label(new Rect(screenWidth * .125f, screenHeight * .1f, screenWidth * .75f, screenHeight), "Welcome to Golf Programming!\n\nWhere the fundamentals of programming meets mini golf!\n\nThe mouse is used to aim and set the power of your shot.\nLeft clicking will shoot the ball accordingly.\nPressing R will restart the level.\n\nClick the button in the top left to look at the code of the level.\nPut your mouse over the pop-up code editor to learn more about what it does!\nClick the top left button again to resume play.\n\nPress escape to return to the menu.");
         GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 
         //back button (bottom right corner)
