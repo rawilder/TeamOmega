@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     public int strokeCount;
     public Rect modeChangeRect;
     public bool victoryCondition;
+    public GUISkin defaultSkin;
+
+    public bool phaseWall;
+
 
     public string worldName;
     public int levelNumber;
@@ -63,38 +67,30 @@ public class PlayerController : MonoBehaviour
 		_ballPlane = new Plane();
 		_frameCounter = 0;
 		arrowSprite.SetActive(false);
-		Vector3 lastShotPostion;
-		Vector3 lastShotForce;
 
-        modeChangeRect = new Rect(0, 0, 75, 40);
+        modeChangeRect = new Rect(10, 10, 150, 80);
 
         _ballController = _rb.GetComponent<BallBehavior>();
-        _ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+        _ifWalls = GameObject.FindGameObjectsWithTag("IfWall");
+
 	    _rb.angularVelocity = Vector3.zero;
         if (Input.GetKeyDown("r"))
         {
 			_ballController.reset();
 		}
 
-        if (Input.GetKeyDown("t"))
+        if (Input.GetKey(KeyCode.Escape))
         {
-            _ballController.teleportToHole();
+            MainMenu.returnToLevelSelect = true;
+            Application.LoadLevel("main_menu");
         }
 
-		if (Input.GetKeyDown ("e"))
-		{
-			redoShot();
-		}
 
-        if (victoryCondition && Input.GetMouseButtonDown(0))
-        {
-            Application.LoadLevel(0);
-        }
 
         switch (ballState)
 		{
@@ -121,7 +117,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case GameState.playing:
-                modeChangeString = "Edit";
+                modeChangeString = "Code";
                 break;
 
 
@@ -130,7 +126,7 @@ public class PlayerController : MonoBehaviour
 		//if walls
         foreach (GameObject g in _ifWalls)
         {
-			if (this.renderer.material.color == g.renderer.material.color) {
+			if (phaseWall) {
 				Physics.IgnoreCollision(this.collider, g.collider);
 			} 
 			else {
@@ -140,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-	private void CheckForBallStop()
+	public void CheckForBallStop()
 	{
 		if (_rb.velocity.magnitude <= speedThreshold)
 		{
@@ -190,18 +186,9 @@ public class PlayerController : MonoBehaviour
 			//rotate arrow to face ball
 			arrowSprite.transform.position = _lastAimPoint + (_lastAimPoint - _myTransform.position).normalized / 2;
 			Quaternion rotation = Quaternion.Euler(0, 90, 0) * Quaternion.LookRotation(Vector3.up, _myTransform.position - _lastAimPoint);
-		 
-			if (Input.GetKey(KeyCode.LeftShift))
-			{
-				Vector3 rot = rotation.eulerAngles;
-				int snapValue = (int)rot.y % 15;
-				rot = new Vector3(rot.x,rot.y-snapValue,rot.z);
-				arrowSprite.transform.RotateAround(_myTransform.position, Vector3.up, rot.y);
-			}
-			else
-			{
-				arrowSprite.transform.rotation = rotation;
-			}
+            
+            arrowSprite.transform.rotation = rotation;
+            
 			//scale arrow to proper size
 			float mag = (_lastAimPoint - _myTransform.position).magnitude;
 			arrowSprite.transform.localScale = new Vector3(mag, mag / 2, 1);
@@ -221,29 +208,46 @@ public class PlayerController : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(Screen.width * .03f, Screen.height * .85f, 1500, 1000), "<size=15>Press R to rest the level. \nPress E to redo the last shot with the same angle and force.\nPar: "+par+". \nYour score: " + strokeCount + "</size>");
 
-		if (GUI.Button(modeChangeRect, modeChangeString)) 
-		{
-		    if (gameState == GameState.playing)
-		    {
-                arrowSprite.SetActive(false);
-		        gameState = GameState.editing;
-		    }
-            else
-		    {
-		        foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+        GUI.skin = defaultSkin;
+        
+        GUI.skin.label.alignment = TextAnchor.LowerLeft;
+        GUI.Label(new Rect(10, Screen.height - 300, 200, 400), "<size=50>Par: " + par + "\nScore: " + strokeCount + "</size>");
+        GUI.skin.label.alignment = TextAnchor.MiddleCenter;
+
+        if (Application.loadedLevel != 1)
+        {
+
+            if (GUI.Button(modeChangeRect, modeChangeString))
+            {
+                if (gameState == GameState.playing)
                 {
-                    e.drawEditor = false;
+                    arrowSprite.SetActive(false);
+                    foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+                    {
+                        e.drawEditor = true;
+                    }
+                    foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
+                    {
+                        e.drawEditor = true;
+                    }
+                    gameState = GameState.editing;
                 }
-                foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
+                else
                 {
-                    e.drawEditor = false;
+                    foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+                    {
+                        e.drawEditor = false;
+                    }
+                    foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
+                    {
+                        e.drawEditor = false;
+                    }
+                    gameState = GameState.playing;
                 }
-                gameState = GameState.playing;
-		    }
-            AudioManager.Instance.playMenuSelect();
-		}
+                AudioManager.Instance.playMenuSelect();
+            }
+        }
     }
 
 	private void shootBall()
@@ -282,6 +286,7 @@ public class PlayerController : MonoBehaviour
 		}*/		
 		if (col.gameObject.name == "blueIfPatch") {
 			renderer.material = col.renderer.material;
+            phaseWall = true;
 		}
 	}
 }

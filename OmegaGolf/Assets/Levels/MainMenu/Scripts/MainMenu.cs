@@ -24,11 +24,13 @@ public class MainMenu : MonoBehaviour
     //level menu variables
     private float _lButtonWidth, _lButtonHeight, _lButton1X, _lButtonDeltaX, _lButtonY;
     private int _lButtonFontSize;
- 
+
+
     private enum MenuState
     {
         Main,
         World,
+        Help,
         Level
     };
     private MenuState _state;
@@ -56,9 +58,12 @@ public class MainMenu : MonoBehaviour
     }
     public World[] worlds;
 
+    public static bool returnToLevelSelect;
+
+
+
 #endregion
 
-    
     void Start () {
         _state = MenuState.Main;
         screenHeight = Screen.height;
@@ -76,15 +81,31 @@ public class MainMenu : MonoBehaviour
                 worlds[i].levelFlags[int.Parse(level.Attributes["number"].InnerText)] = int.Parse(level.Attributes["flags"].InnerText);
             }
         }
+
+        
 	}
 
     void Update()
     {
+        if (returnToLevelSelect)
+        {
+            _state = MenuState.Level;
+            returnToLevelSelect = false;
+        }
         if(Screen.height != screenHeight || Screen.width != screenWidth)
         {
             screenHeight = Screen.height;
             screenWidth = Screen.width;
             CalculateDimensions();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_state == MenuState.Help || _state == MenuState.World)
+                _state = MenuState.Main;
+            else if(_state == MenuState.Level)
+                _state = MenuState.World;
         }
     }
 	
@@ -99,6 +120,9 @@ public class MainMenu : MonoBehaviour
                 break;
             case MenuState.World:
                 WorldGUI();
+                break;
+            case MenuState.Help:
+                HelpGUI();
                 break;
             case MenuState.Level:
                 LevelGUI();
@@ -162,18 +186,44 @@ public class MainMenu : MonoBehaviour
             _state = MenuState.World;
             AudioManager.Instance.playMenuSelect();
         }
-        //Quit Button
+        //Help Button
         GUI.skin.button.fontSize = _mmQuitFontSize;
-        if (GUI.Button(new Rect(_mmQuitX, _mmQuitY, _mmQuitButtonWidth, _mmQuitButtonHeight), "Quit")){
-            Application.Quit();
+        if (GUI.Button(new Rect(_mmQuitX, _mmQuitY, _mmQuitButtonWidth, _mmQuitButtonHeight), "Introduction")){
+            _state = MenuState.Help;
             AudioManager.Instance.playMenuSelect();
+        }
+        //Exit Button
+        GUI.skin.button.fontSize = _backFontSize;
+        if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Exit"))
+        {
+            Application.Quit();
         }
         //Title
         GUI.DrawTexture(new Rect(_mmTitleX, _mmTitleY, _mmTitleW, _mmTitleH), titleTexture);
     }
 #endregion
 
-   
+#region Help Screen
+
+    private void HelpGUI()
+    {
+        GUI.skin.label.alignment = TextAnchor.UpperCenter;
+        GUI.Label(new Rect(screenWidth * .125f, 150f, screenWidth * .75f, screenHeight), "<size=84>Welcome to Golf Programming!</size><size=45>\n\nWhere the fundamentals of programming meets mini golf!\n\nThe mouse is used to aim and set the power of your shot.\nLeft clicking will shoot the ball accordingly.\nPressing R will restart the level.\n\nClick the button in the top left to look at the code of the level.\nPut your mouse over the pop-up code editor to learn more about what it does!\nClick the top left button again to resume play.\n\nPress escape to return to the menu.</size>");
+        GUI.skin.label.alignment = TextAnchor.MiddleCenter;
+
+        //back button (bottom right corner)
+        GUI.skin.button.fontSize = _backFontSize;
+        if (GUI.Button(new Rect(_backX, _backY, _backW, _backH), "Back"))
+        {
+            _state = MenuState.Main;
+            AudioManager.Instance.playMenuSelect();
+        }
+    }
+
+
+#endregion
+
+
 
 #region World Selection Screen
     private void WorldGUI()
@@ -231,6 +281,8 @@ public class MainMenu : MonoBehaviour
         Rect lockRect = new Rect(buttonLoc.x + .25f*buttonLoc.width, buttonLoc.y + .1f * buttonLoc.height, .5f * buttonLoc.width, .7f * buttonLoc.height);
         GUI.DrawTexture(lockRect, Lock);
         return b;
+
+
     }
     private void LevelGUI()
     {

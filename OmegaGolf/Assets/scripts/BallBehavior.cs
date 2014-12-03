@@ -16,6 +16,7 @@ public class BallBehavior : MonoBehaviour
     public Texture2D gBall;
     private float windowWidth, windowHeight, windowX, windowY;
 
+
     // Use this for initialization
     void Start()
     {
@@ -67,7 +68,6 @@ public class BallBehavior : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Editable"))
         {
-            Debug.Log("hey hacky shit here");
             rb.AddForce(rb.velocity * (100f * collision.gameObject.GetComponent<EditableEntityBounce>().bounceValue));
             AudioManager.Instance.playBounceWall();
         }
@@ -126,8 +126,9 @@ public class BallBehavior : MonoBehaviour
         {
             Application.LoadLevel(Application.loadedLevelName);
         }
-        if (GUI.Button(new Rect((windowWidth - buttonWidth) * .05f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Main Menu"))
+        if (GUI.Button(new Rect((windowWidth - buttonWidth) * .05f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Level Select"))
         {
+            MainMenu.returnToLevelSelect = true;
             Application.LoadLevel("main_menu");
         }
     }
@@ -135,10 +136,13 @@ public class BallBehavior : MonoBehaviour
     public void reset()
     {
         playerController.strokeCount = 0;
+        playerController.phaseWall = false;
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 		rb.MovePosition(GameObject.FindGameObjectWithTag("SpawnPoint").transform.position);
+
+        playerController.CheckForBallStop();
 
 		renderer.material.color = playerController.ballColor;
 		gameObject.layer = 0;

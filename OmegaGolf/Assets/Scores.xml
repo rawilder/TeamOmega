@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Worlds>
   <Forest>
-    <Level number="0" flags="2" />
+    <Level number="0" flags="3" />
     <Level number="1" flags="3" />
     <Level number="2" flags="3" />
     <Level number="3" flags="0" />

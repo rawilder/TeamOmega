@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df9c7d9fe8e40ab4285c52e6975b3e77
+guid: 4e893a6d71e498c4aa4f9c8c5630b381
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -439,6 +439,92 @@ ModelImporter:
     4300166: pCube59
     4300168: base
     4300170: pPlane1
+    6400000: base
+    6400002: pCube121
+    6400004: pCube122
+    6400006: pCube123
+    6400008: pCube124
+    6400010: pCube125
+    6400012: pCube126
+    6400014: pCube127
+    6400016: pCube128
+    6400018: pCube129
+    6400020: pCube130
+    6400022: pCube131
+    6400024: pCube133
+    6400026: pCube134
+    6400028: pCube135
+    6400030: pCube136
+    6400032: pCube137
+    6400034: pCube138
+    6400036: pCube139
+    6400038: pCube140
+    6400040: pCube141
+    6400042: pCube142
+    6400044: pCube143
+    6400046: pCube144
+    6400048: pCube146
+    6400050: pCube147
+    6400052: pCube148
+    6400054: pCube150
+    6400056: pCube151
+    6400058: pCube152
+    6400060: pCube153
+    6400062: pCube154
+    6400064: pCube156
+    6400066: pCube157
+    6400068: pCube158
+    6400070: pCube159
+    6400072: pCube161
+    6400074: pCube162
+    6400076: pCube163
+    6400078: pCube164
+    6400080: pCube165
+    6400082: pCube166
+    6400084: pCube167
+    6400086: pCube168
+    6400088: pCube169
+    6400090: pCube170
+    6400092: pCube171
+    6400094: pCube172
+    6400096: pCube173
+    6400098: pCube174
+    6400100: pCube59
+    6400102: pCube60
+    6400104: pCube61
+    6400106: pCube62
+    6400108: pCube63
+    6400110: pCube64
+    6400112: pCube65
+    6400114: pCube66
+    6400116: pCube67
+    6400118: pCube68
+    6400120: pCube69
+    6400122: pCube70
+    6400124: pCube71
+    6400126: pCube72
+    6400128: pCube73
+    6400130: pCube74
+    6400132: pCube75
+    6400134: pCube76
+    6400136: pCube77
+    6400138: pCube78
+    6400140: pCube79
+    6400142: pCube80
+    6400144: pCube81
+    6400146: pCube82
+    6400148: pCube83
+    6400150: pCube84
+    6400152: pCube85
+    6400154: pCube86
+    6400156: pCube87
+    6400158: pCube88
+    6400160: pCube89
+    6400162: pCube90
+    6400164: pCube91
+    6400166: pCube92
+    6400168: pCube93
+    6400170: pPlane1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -461,7 +547,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

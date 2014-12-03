@@ -4,20 +4,31 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
 
 
-    private AudioSource bounceWall, changeCode, menuHover, menuSelect;
+    public  AudioSource bounceWall, changeCode, menuHover, menuSelect;
 
     public static AudioManager Instance { get; private set; }
 
 	// Use this for initialization
     // Music: http://www.bensound.com
 	void Awake () {
-        if (Instance != null)
+
+        if (this != Instance && Instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
         DontDestroyOnLoad(this);
-        foreach(AudioSource aSource in GetComponents<AudioSource>())
+    }
+
+    void LoadClips()
+    {
+        Instance = this;
+
+        foreach (AudioSource aSource in this.gameObject.GetComponents<AudioSource>())
         {
-            switch(aSource.clip.name)
+            switch (aSource.clip.name)
             {
                 case "changeCode":
                     changeCode = aSource;
@@ -35,24 +46,23 @@ public class AudioManager : MonoBehaviour {
                     break;
             }
         }
-	}
-
+    }
 
     public void playBounceWall()
     {
-        bounceWall.Play();
+        Instance.bounceWall.Play();
     }
     public void playChangeCode()
     {
-        changeCode.Play();
+        Instance.changeCode.Play();
     }
     public void playMenuHover()
     {
-        menuHover.Play();
+        Instance.menuHover.Play();
     }
     public void playMenuSelect()
     {
-        menuSelect.Play();
+        Instance.menuSelect.Play();
     }
 
 	
