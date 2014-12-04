@@ -2434,6 +2434,7 @@ MonoBehaviour:
     - 
     - 
     levelFlags: 0000000000000000000000000000000000000000000000000000000000000000
+    levelLocked: 0000000000000000
   - worldName: Mountain
     buttonStyle:
       m_Name: 
@@ -2504,6 +2505,7 @@ MonoBehaviour:
     - 
     - 
     levelFlags: 0000000000000000000000000000000000000000000000000000000000000000
+    levelLocked: 0000000000000000
   - worldName: Ice
     buttonStyle:
       m_Name: 
@@ -2574,6 +2576,7 @@ MonoBehaviour:
     - 
     - 
     levelFlags: 0000000000000000000000000000000000000000000000000000000000000000
+    levelLocked: 0000000000000000
 --- !u!1 &1431998293
 GameObject:
   m_ObjectHideFlags: 0

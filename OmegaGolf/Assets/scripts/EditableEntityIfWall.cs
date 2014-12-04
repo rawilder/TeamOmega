@@ -12,11 +12,11 @@ public class EditableEntityIfWall : MonoBehaviour
 	public EditType editType;  
 	public enum EditType { bounceWall, ifWall, colorMat }
 
+
     // Use this for initialization
     void Start()
     {
         drawEditor = false;
-
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class EditableEntityIfWall : MonoBehaviour
             {
                 GUI.skin = defaultSkin;
                 GUI.skin.label.alignment = TextAnchor.UpperLeft;
-                GUI.Label(new Rect(Screen.width * .7f, Screen.height * .85f, Screen.width * .3f, Screen.height * .2f), "<size=30>\"if\" statements control the flow of code based on a true or false condition. If the condition in parentheses is false, the code in the braces will not execute.</size>");
+                GUI.Label(new Rect(Screen.width * .7f, Screen.height * .85f, 300, Screen.height * .2f), "<size=30>\"if\" statements control the flow of code based on a true or false condition. If the condition in parentheses is false, the code in the braces will not execute.</size>");
                 GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 
             }

@@ -15,6 +15,8 @@ public class EditableEntityBounce: MonoBehaviour
 	public EditType editType;  
 	public enum EditType { bounceWall, ifWall, colorMat }
 
+    private PlayerController pc;
+
     // Use this for initialization
     void Start()
     {
@@ -22,6 +24,7 @@ public class EditableEntityBounce: MonoBehaviour
         drawEditor = false;
         bounceValue = 0.0f;
         physMaterial.bounciness = 1.0f;
+        pc = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -60,7 +63,8 @@ public class EditableEntityBounce: MonoBehaviour
             {
                 GUI.skin = defaultSkin;
                 GUI.skin.label.alignment = TextAnchor.UpperLeft;
-                GUI.Label(new Rect(Screen.width * .7f, Screen.height * .85f, Screen.width * .25f, Screen.height * .2f), "<size=30>Here we can set the bounciness of the wall. The variables data type is int, for integer, so no decimals! 0 = no bounce, 10 = max bounce.</size>");
+                GUI.skin.label.fontSize = Mathf.FloorToInt(Mathf.Min(Screen.width * .025f, Screen.height * .025f));
+                GUI.Label(new Rect(windowRect.x, windowRect.y + windowRect.height * 1.25f, Screen.width * .25f, Screen.height * .35f), "Here we can set the bounciness of the wall. The variables data type is int, for integer, so no decimals! 0 = no bounce, 10 = max bounce.");
                 GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 
             }
@@ -79,7 +83,6 @@ public class EditableEntityBounce: MonoBehaviour
 
         if (GUI.Button(new Rect(230, 25, 45, 30), "Apply"))
         {
-            Debug.Log("Code Submitted!");
             int newBounceValue = 0;
 
             if (int.TryParse(textFieldString, out newBounceValue))
@@ -91,6 +94,7 @@ public class EditableEntityBounce: MonoBehaviour
                 }
                 AudioManager.Instance.playChangeCode();
                 bounceValue = newBounceValue / 10.0f;
+                pc.ChangeGameState();
             }
         }
     }

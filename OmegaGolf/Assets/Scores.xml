@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Worlds>
   <Desert>
-    <Level number="0" flags="3" />
-    <Level number="1" flags="3" />
-    <Level number="2" flags="3" />
-    <Level number="3" flags="0" />
-    <Level number="4" flags="0" />
-    <Level number="5" flags="0" />
-    <Level number="6" flags="0" />
-    <Level number="7" flags="0" />
+    <Level number="0" flags="0" Locked="False" />
+    <Level number="1" flags="0" Locked="True" />
+    <Level number="2" flags="0" Locked="True" />
+    <Level number="3" flags="0" Locked="True" />
+    <Level number="4" flags="0" Locked="True" />
+    <Level number="5" flags="0" Locked="True" />
+    <Level number="6" flags="0" Locked="True" />
+    <Level number="7" flags="0" Locked="True" />
   </Desert>
   <Mountain>
-    <Level number="0" flags="0" />
-    <Level number="1" flags="0" />
-    <Level number="2" flags="0" />
-    <Level number="3" flags="0" />
-    <Level number="4" flags="0" />
-    <Level number="5" flags="0" />
-    <Level number="6" flags="0" />
-    <Level number="7" flags="0" />
+    <Level number="0" flags="0" Locked="True" />
+    <Level number="1" flags="0" Locked="True" />
+    <Level number="2" flags="0" Locked="True" />
+    <Level number="3" flags="0" Locked="True" />
+    <Level number="4" flags="0" Locked="True" />
+    <Level number="5" flags="0" Locked="True" />
+    <Level number="6" flags="0" Locked="True" />
+    <Level number="7" flags="0" Locked="True" />
   </Mountain>
   <Ice>
-    <Level number="0" flags="0" />
-    <Level number="1" flags="0" />
-    <Level number="2" flags="0" />
-    <Level number="3" flags="0" />
-    <Level number="4" flags="0" />
-    <Level number="5" flags="0" />
-    <Level number="6" flags="0" />
-    <Level number="7" flags="0" />
+    <Level number="0" flags="0" Locked="True" />
+    <Level number="1" flags="0" Locked="True" />
+    <Level number="2" flags="0" Locked="True" />
+    <Level number="3" flags="0" Locked="True" />
+    <Level number="4" flags="0" Locked="True" />
+    <Level number="5" flags="0" Locked="True" />
+    <Level number="6" flags="0" Locked="True" />
+    <Level number="7" flags="0" Locked="True" />
   </Ice>
 </Worlds>

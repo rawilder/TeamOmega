@@ -55,6 +55,8 @@ public class BallBehavior : MonoBehaviour
                     else
                         flagCount = 1;
                     level.Attributes["flags"].InnerText = Mathf.Max(int.Parse(level.Attributes["flags"].InnerText) , flagCount).ToString();
+                    if(level.NextSibling != null)
+                        level.NextSibling.Attributes["Locked"].InnerText = "False";
                     doc.Save("Assets/Scores.xml");
                     return;
                 }
@@ -103,11 +105,11 @@ public class BallBehavior : MonoBehaviour
     private void LevelEndScreen(int windowID)
     {
         //Level Complete Text
-        GUI.skin.label.fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .1f), Mathf.FloorToInt(windowHeight * .15f));
+        GUI.skin.label.fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .085f), Mathf.FloorToInt(windowHeight * .125f));
         GUI.Label(new Rect(0, windowHeight * .075f, windowWidth, windowHeight * .2f), "Level Complete!");
-        GUI.skin.label.fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .15f), Mathf.FloorToInt(windowHeight * .05f));
-        GUI.Label(new Rect(0, windowHeight * .85f, windowWidth, windowHeight * .15f), "Strokes : " + playerController.strokeCount, GUI.skin.customStyles[0]);
-
+        GUI.skin.customStyles[0].fontSize = Mathf.Min(Mathf.FloorToInt(windowWidth * .15f), Mathf.FloorToInt(windowHeight * .05f));
+        GUI.Label(new Rect(0, windowHeight * .225f, windowWidth, windowHeight * .1f), "Strokes/Par : " + playerController.strokeCount + "/" + playerController.par, GUI.skin.customStyles[0]);
+        
         float ballWidth = Mathf.Min(windowWidth*.25f, windowHeight*.25f);
         float ballHeight = ballWidth;
         Texture2D flag;
@@ -117,13 +119,17 @@ public class BallBehavior : MonoBehaviour
             flag = twoflag;
         else
             flag = oneflag;
-        GUI.DrawTexture(new Rect((windowWidth - ballWidth*2) * .475f, (windowHeight - ballHeight*2) * .7f, ballWidth*2, ballHeight*2), flag);
-        GUI.DrawTexture(new Rect((windowWidth - ballWidth) * .5f, (windowHeight - ballHeight) * .8f, ballWidth, ballHeight), gBall);
+        GUI.DrawTexture(new Rect((windowWidth - ballWidth*2) * .475f, (windowHeight - ballHeight*2) * .6f, ballWidth*2, ballHeight*2), flag);
+        GUI.DrawTexture(new Rect((windowWidth - ballWidth) * .5f, (windowHeight - ballHeight) * .7f, ballWidth, ballHeight), gBall);
         float buttonWidth = windowWidth * .25f;
         float buttonHeight = windowHeight * .15f;
 
         GUI.skin.button.fontSize = Mathf.FloorToInt(Mathf.Min(buttonWidth * .25f, buttonHeight * .3f));
-        if (GUI.Button(new Rect((windowWidth - buttonWidth) * .95f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Replay"))
+        if (GUI.Button(new Rect((windowWidth - buttonWidth) * .95f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Next"))
+        {
+            Application.LoadLevel("Level" + (playerController.levelNumber + 2).ToString()); //hacky shit cause i know naming structure of scenes
+        }
+        if (GUI.Button(new Rect((windowWidth - buttonWidth) * .5f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Replay"))
         {
             Application.LoadLevel(Application.loadedLevelName);
         }

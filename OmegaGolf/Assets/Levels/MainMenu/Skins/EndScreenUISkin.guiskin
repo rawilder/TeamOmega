@@ -118,7 +118,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 34
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 38
+    m_FontSize: 57
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -1196,13 +1196,13 @@ MonoBehaviour:
   - m_Name: StrokeLabel
     m_Normal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .761663258, g: 1, b: .308823526, a: 1}
+      m_TextColor: {r: .407843143, g: .411764711, b: .407843143, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .75686276, g: .996078432, b: .309803933, a: 1}
+      m_TextColor: {r: .407843143, g: .411764711, b: .407843143, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .752941191, g: .992156863, b: .309803933, a: 1}
+      m_TextColor: {r: .407843143, g: .411764711, b: .407843143, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -1239,7 +1239,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 0
+    m_FontSize: 22
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0

@@ -55,6 +55,7 @@ public class MainMenu : MonoBehaviour
         public GUIStyle buttonStyle;
         public string[] levelNames = new string[8];
         public int[] levelFlags = new int[8];
+        public bool[] levelLocked = new bool[8];
     }
     public World[] worlds;
 
@@ -79,6 +80,10 @@ public class MainMenu : MonoBehaviour
             foreach (XmlNode level in root.ChildNodes)
             {
                 worlds[i].levelFlags[int.Parse(level.Attributes["number"].InnerText)] = int.Parse(level.Attributes["flags"].InnerText);
+                if(level.Attributes["Locked"].InnerText.Equals("True"))
+                    worlds[i].levelLocked[int.Parse(level.Attributes["number"].InnerText)] = true;
+                else
+                    worlds[i].levelLocked[int.Parse(level.Attributes["number"].InnerText)] = false;
             }
         }
 
@@ -157,7 +162,7 @@ public class MainMenu : MonoBehaviour
         _mmTitleW = screenWidth * .7f;
         _mmTitleH = screenHeight  * .4f;
         //World selection variables
-        _wButtonHeight = (screenHeight * 0.35f) / worlds.Length;
+        _wButtonHeight = (screenHeight * 0.45f) / worlds.Length;
         _wButtonWidth = screenWidth * 0.25f;
         _wButtonFontSize = Mathf.Min(Mathf.FloorToInt(_wButtonWidth * .25f), Mathf.FloorToInt(_wButtonHeight * .45f));
         _wButtonX = (screenWidth - _wButtonWidth) * 0.5f;
@@ -231,12 +236,29 @@ public class MainMenu : MonoBehaviour
     {
         for (int i = 0; i < worlds.Length; i++)
         {
-            worlds[i].buttonStyle.fontSize = _wButtonFontSize;
-            if (GUI.Button(new Rect(_wButtonX, _wButtonY + i *(_wButtonHeight * 1.25f) , _wButtonWidth, _wButtonHeight), worlds[i].worldName, worlds[i].buttonStyle))
+            
+            bool levelExists = false;
+            foreach(string levelName in worlds[i].levelNames)
             {
-                _worldIndex = i;
-                _state = MenuState.Level;
-                AudioManager.Instance.playMenuSelect();
+                if (!string.IsNullOrEmpty(levelName))
+                    levelExists = true;
+            }
+            if (levelExists)
+            {
+                worlds[i].buttonStyle.fontSize = _wButtonFontSize;
+                if (GUI.Button(new Rect(_wButtonX, _wButtonY + i * (_wButtonHeight * 1.25f), _wButtonWidth, _wButtonHeight), worlds[i].worldName, worlds[i].buttonStyle))
+                {
+
+                    _worldIndex = i;
+                    _state = MenuState.Level;
+                    AudioManager.Instance.playMenuSelect();
+                }
+            }
+            else
+            {
+                GUI.Button(new Rect(_wButtonX, _wButtonY + i * (_wButtonHeight * 1.25f), _wButtonWidth, _wButtonHeight), string.Empty, worlds[i].buttonStyle);
+                Rect lockRect = new Rect(_wButtonX + .325f * _wButtonWidth, _wButtonY + i * (_wButtonHeight * 1.25f), .35f * _wButtonWidth, .8f * _wButtonHeight);
+                GUI.DrawTexture(lockRect, Lock);
             }
         }
         //back button (bottom right corner)
@@ -282,8 +304,6 @@ public class MainMenu : MonoBehaviour
         Rect lockRect = new Rect(buttonLoc.x + .25f*buttonLoc.width, buttonLoc.y + .1f * buttonLoc.height, .5f * buttonLoc.width, .7f * buttonLoc.height);
         GUI.DrawTexture(lockRect, Lock);
         return b;
-
-
     }
     private void LevelGUI()
     {
@@ -296,7 +316,7 @@ public class MainMenu : MonoBehaviour
         worlds[_worldIndex].buttonStyle.fontSize = _lButtonFontSize;
         for (int i = 0; i < 4; i++ )
         {
-            if(string.IsNullOrEmpty(worlds[_worldIndex].levelNames[i]))
+            if(string.IsNullOrEmpty(worlds[_worldIndex].levelNames[i]) || worlds[_worldIndex].levelLocked[i])
             {
                 LockedLevel(new Rect(_lButton1X + i * _lButtonDeltaX, _lButtonY, _lButtonWidth, _lButtonHeight));
             }

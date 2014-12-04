@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 		_frameCounter = 0;
 		arrowSprite.SetActive(false);
 
-        modeChangeRect = new Rect(10, 10, 150, 80);
+        modeChangeRect = new Rect(Screen.width * .01f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f);
 
         _ballController = _rb.GetComponent<BallBehavior>();
 	}
@@ -212,7 +212,9 @@ public class PlayerController : MonoBehaviour
         GUI.skin = defaultSkin;
         
         GUI.skin.label.alignment = TextAnchor.LowerLeft;
-        GUI.Label(new Rect(10, Screen.height - 300, 200, 400), "<size=50>Par: " + par + "\nScore: " + strokeCount + "</size>");
+        //new Rect(10, Screen.height - 300, 200, 400)
+        GUI.skin.label.fontSize = Mathf.FloorToInt(Mathf.Min(Screen.width * .05f, Screen.height * .05f));
+        GUI.Label(new Rect(10, Screen.height *.65f, Screen.width, Screen.height * .35f), "Par: " + par + "\nScore: " + strokeCount);
         GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 
         if (Application.loadedLevel != 1)
@@ -220,33 +222,38 @@ public class PlayerController : MonoBehaviour
 
             if (GUI.Button(modeChangeRect, modeChangeString))
             {
-                if (gameState == GameState.playing)
-                {
-                    arrowSprite.SetActive(false);
-                    foreach (var e in FindObjectsOfType<EditableEntityBounce>())
-                    {
-                        e.drawEditor = true;
-                    }
-                    foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
-                    {
-                        e.drawEditor = true;
-                    }
-                    gameState = GameState.editing;
-                }
-                else
-                {
-                    foreach (var e in FindObjectsOfType<EditableEntityBounce>())
-                    {
-                        e.drawEditor = false;
-                    }
-                    foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
-                    {
-                        e.drawEditor = false;
-                    }
-                    gameState = GameState.playing;
-                }
+                ChangeGameState();
                 AudioManager.Instance.playMenuSelect();
             }
+        }
+    }
+
+    public void ChangeGameState()
+    {
+        if (gameState == GameState.playing)
+        {
+            arrowSprite.SetActive(false);
+            foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+            {
+                e.drawEditor = true;
+            }
+            foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
+            {
+                e.drawEditor = true;
+            }
+            gameState = GameState.editing;
+        }
+        else
+        {
+            foreach (var e in FindObjectsOfType<EditableEntityBounce>())
+            {
+                e.drawEditor = false;
+            }
+            foreach (var e in FindObjectsOfType<EditableEntityIfWall>())
+            {
+                e.drawEditor = false;
+            }
+            gameState = GameState.playing;
         }
     }
 
