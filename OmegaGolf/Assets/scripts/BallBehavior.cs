@@ -127,7 +127,15 @@ public class BallBehavior : MonoBehaviour
         GUI.skin.button.fontSize = Mathf.FloorToInt(Mathf.Min(buttonWidth * .25f, buttonHeight * .3f));
         if (GUI.Button(new Rect((windowWidth - buttonWidth) * .95f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Next"))
         {
-            Application.LoadLevel("Level" + (playerController.levelNumber + 2).ToString()); //hacky shit cause i know naming structure of scenes
+            if(Application.CanStreamedLevelBeLoaded("Level" + (playerController.levelNumber + 2).ToString()))
+            {
+                Application.LoadLevel("Level" + (playerController.levelNumber + 2).ToString()); //hacky shit cause i know naming structure of scenes
+            }
+            else
+            {
+                MainMenu.returnToLevelSelect = true;
+                Application.LoadLevel("main_menu");
+            }
         }
         if (GUI.Button(new Rect((windowWidth - buttonWidth) * .5f, (windowHeight - buttonHeight) * .95f, buttonWidth, buttonHeight), "Replay"))
         {

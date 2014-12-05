@@ -39,7 +39,8 @@ public class EditableEntityIfWall : MonoBehaviour
             {
                 GUI.skin = defaultSkin;
                 GUI.skin.label.alignment = TextAnchor.UpperLeft;
-                GUI.Label(new Rect(Screen.width * .7f, Screen.height * .85f, 300, Screen.height * .2f), "<size=30>\"if\" statements control the flow of code based on a true or false condition. If the condition in parentheses is false, the code in the braces will not execute.</size>");
+                GUI.skin.label.fontSize = Mathf.FloorToInt(Mathf.Min(Screen.width * .025f, Screen.height * .025f));
+                GUI.Label(new Rect(windowRect.x, windowRect.y + windowRect.height * 1.25f, Screen.width * .25f, Screen.height * .35f), "\"if\" statements control the flow of code based on a true or false condition. If the condition in parentheses is false, the code in the braces will not execute.");
                 GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 
             }
